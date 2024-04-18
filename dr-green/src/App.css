@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
 
 .App {
   text-align: center;
@@ -36,19 +37,22 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
 
 .mobile-view-container {
-  width: 393px; /* iPhone 14 Pro width */
-  height: 852px; /* iPhone 14 Pro height */
+  width: 393px;
+  /* iPhone 14 Pro width */
+  height: 852px;
+  /* iPhone 14 Pro height */
   margin: auto;
   border: 1px solid #ccc;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  overflow-y: auto; /* Allows scrolling */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  /* Allows scrolling */
   position: relative;
   background-color: #F6F6F6;
 }
-
