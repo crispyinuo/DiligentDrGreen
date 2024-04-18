@@ -9,14 +9,16 @@ import Community from "./pages/community";
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="description" element={<Description />} />
-        <Route path="history" element={<History />} />
-        <Route path="community" element={<Community />} />
-      </Routes>
-    </BrowserRouter>
+    <div className="mobile-view-container">
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="description" element={<Description />} />
+          <Route path="history" element={<History />} />
+          <Route path="community" element={<Community />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
   );
 }
 
