@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import DrMessage from '../components/drMessage';
 
 const PageContainer = styled.div`
   display: flex;
@@ -65,6 +66,7 @@ const History = () => {
 
   return (
     <PageContainer>
+      <DrMessage />
       <Header>
         <PlaceholderImage />
         <h1 style={{ color: "black", fontFamily: "sans-serif", fontSize: "30px" }}>Hi there!</h1>
