@@ -1,13 +1,17 @@
 import React from 'react';
 import IdentifyDiagnosisBar from '../components/identifyDiagnosisBar';
+import CameraBottomBar from '../components/cameraBottomBar';
 import '../style.css';
 
 function Camera() {
     return (
         <div className="camera">
             <h1>Welcome to the Camera Page</h1>
-            <div className="nav-bar-container">
-                <IdentifyDiagnosisBar />
+            <div className="content-container">
+                <div className="camera-identify-bar-container ">
+                    <IdentifyDiagnosisBar />
+                </div>
+                <CameraBottomBar />
             </div>
         </div>
     );

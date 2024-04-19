@@ -8,6 +8,8 @@ import image4 from '../icons/history_image 4.png';
 import time_icon from '../icons/Time.png';
 import identify_icon from '../icons/Scanning.png'
 import diagnosis_icon from '../icons/Stethoscope.png'
+import NavBar from '../components/navBar';
+import '../style.css';
 
 
 const PageContainer = styled.div`
@@ -94,6 +96,9 @@ const History = () => {
                     </MessageContent>
                 </ChatBubble>
             ))}
+            <div className="nav-bar-container">
+                <NavBar />
+            </div>
         </PageContainer>
     );
 }
