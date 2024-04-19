@@ -2,7 +2,6 @@ import React from 'react';
 import IdentifyDiagnosisBar from '../components/identifyDiagnosisBar';
 import CameraBottomBar from '../components/cameraBottomBar';
 import CameraTopBar from '../components/cameraTopBar';
-import '../style.css';
 
 function Camera() {
     return (
