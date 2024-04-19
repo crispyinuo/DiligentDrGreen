@@ -1,4 +1,6 @@
 import * as React from "react";
+import { useNavigate } from "react-router-dom";
+
 
 // Import the icons
 import BookmarkActive from '../icons/Bookmark_active.png';
@@ -8,13 +10,27 @@ import CameraInactive from '../icons/Camera_inactive.png';
 import PeopleActive from '../icons/People_active.png';
 import PeopleInactive from '../icons/People_inactive.png';
 
-function NavBar() {
-    const [active, setActive] = React.useState(1);  // State to track the active button
+function NavBar({ activeButtonId }) {
+    const [active, setActive] = React.useState(activeButtonId);
+    const navigate = useNavigate();
 
-    // Function to handle click events
     const handleClick = (buttonId) => {
         console.log(`Clicked button ${buttonId}`);
-        setActive(buttonId);  // Set the active button state
+        setActive(buttonId);
+        switch (buttonId) {
+            case 1:
+                navigate("/history");
+                break;
+            case 2:
+                navigate("/camera");
+                break;
+            case 3:
+                navigate("/community");
+                break;
+            default:
+                navigate("/");
+                break;
+        }
     };
 
     return (

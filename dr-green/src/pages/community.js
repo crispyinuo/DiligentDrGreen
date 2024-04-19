@@ -1,5 +1,7 @@
 import * as React from "react";
 import GroupCard from "../components/groupCard";
+import NavBar from '../components/navBar';
+import '../style.css';
 
 function Community() {
     const groupData = [
@@ -27,6 +29,9 @@ function Community() {
                     </React.Fragment>
                 ))}
             </section>
+            <div className="nav-bar-container">
+                <NavBar activeButtonId={3} />
+            </div>
         </main>
     );
 }

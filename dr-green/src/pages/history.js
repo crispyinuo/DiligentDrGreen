@@ -97,7 +97,7 @@ const History = () => {
                 </ChatBubble>
             ))}
             <div className="nav-bar-container">
-                <NavBar />
+                <NavBar activeButtonId={1} />
             </div>
         </PageContainer>
     );
