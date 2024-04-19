@@ -65,17 +65,5 @@ html, body {
   align-items: center;
 }
 
-.nav-bar-container {
-  position: absolute;
-  bottom: 3%; 
-  left: 0; 
-  right: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  width: 100%; 
-}
-
 
 

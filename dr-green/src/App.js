@@ -4,8 +4,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/home";
 import Description from "./pages/description";
 import History from "./pages/history";
-import NavBar from './components/navBar';
 import Community from "./pages/community";
+import Camera from "./pages/camera";
 
 export default function App() {
   return (
@@ -17,11 +17,9 @@ export default function App() {
             <Route path="description" element={<Description />} />
             <Route path="history" element={<History />} />
             <Route path="community" element={<Community />} />
+            <Route path="camera" element={<Camera />} />
           </Routes>
         </BrowserRouter>
-        <div className="nav-bar-container">
-          <NavBar />
-        </div>
       </div>
     </div>
   );
