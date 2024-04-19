@@ -79,13 +79,13 @@ const History = () => {
                     <MessageContent>
                         <Title>{message.title}</Title>
                         <div style={{ display: "flex", gap: "4px" }}>
-                            <div className="badge badge-ghost badge-sm">
+                            <div className="badge badge-ghost badge-sm" style={{ backgroundColor: "#F6F6F6", border: "none" }}>
                                 <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
                                     <img src={message.icon} style={{ width: "12px", height: "12px" }} />
                                     <div style={{ color: "#A9A9A9", fontSize: "10px" }}>{message.content}</div>
                                 </div>
                             </div>
-                            <div className="badge badge-ghost badge-sm">
+                            <div className="badge badge-ghost badge-sm" style={{ backgroundColor: "#F6F6F6", border: "none" }}>
                                 <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
                                     <img src={time_icon} style={{ width: "12px", height: "12px" }} />
                                     <div style={{ color: "#A9A9A9", fontSize: "10px" }}>{message.date}</div>
@@ -95,11 +95,12 @@ const History = () => {
                         <Description>{message.description}</Description>
                     </MessageContent>
                 </ChatBubble>
-            ))}
+            ))
+            }
             <div className="nav-bar-container">
                 <NavBar activeButtonId={1} />
             </div>
-        </PageContainer>
+        </PageContainer >
     );
 }
 
