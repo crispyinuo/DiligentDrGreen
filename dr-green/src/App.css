@@ -52,3 +52,25 @@
   background-color: #F6F6F6;
 }
 
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-bar-container {
+  position: absolute;
+  bottom: 3%; 
+  left: 0; 
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%; 
+}
+
+
+
