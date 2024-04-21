@@ -3,6 +3,7 @@ import background from "../icons/background.png"
 import styled from 'styled-components';
 import return_icon from "../icons/Arrow-left.png"
 import Tabs from '../components/tab';
+import NavBar from "../components/navBar";
 const AppContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -18,11 +19,7 @@ const Header = styled.div`
   height: 400px;
 `;
 
-const NavBar = styled.div`
-  display: flex;
-  justify-content: space-around;
-  background-color: white;
-`;
+
 
 const NavButton = styled.button`
   background: none;
@@ -45,6 +42,7 @@ const IdentificationCard = styled.div`
   flex-direction: column;
   align-items: center; /* Center children horizontally */
   text-align: center;
+  position: relative;
 `;
 
 const IdentificationImage = styled.img`
@@ -104,8 +102,11 @@ function Identify() {
                 </div>
                 <IdentificationCard>
                     <Tabs />
-
+                    <div className="nav-bar-container">
+                        <NavBar activeButtonId={2} />
+                    </div>
                 </IdentificationCard>
+
             </Header>
 
         </AppContainer>

@@ -1,10 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css?family=Montserrat');
+/* @import url('https://fonts.googleapis.com/css?family=Montserrat'); */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 .App {
   text-align: center;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
 }
 
 .App-logo {
@@ -46,8 +51,8 @@
 .mobile-view-container {
   width: 393px;
   /* iPhone 14 Pro width */
-  height: 852px;
-  /* iPhone 14 Pro height */
+  height: 798px;
+  /* iPhone 14 Pro height - status bar height*/
   margin: auto;
   border: 1px solid #ccc;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -56,3 +61,14 @@
   position: relative;
   background-color: #F6F6F6;
 }
+
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+

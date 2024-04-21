@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import Infocard from './Infocard';
+import Mammillaria from '../icons/Mammillaria.png'
+import plant2 from '../icons/plant2.png'
+import plant3 from '../icons/plant3.png'
+
 
 // Styled components
 const TabsContainer = styled.div`
   display: flex;
   justify-content: center;
-  margin-bottom: 10px;
+  
 `;
 
 const Tab = styled.button`
@@ -23,6 +28,10 @@ const Tab = styled.button`
 
 const ContentArea = styled.div`
   min-height: 200px;
+  margin: 10px;
+
+  
+  
 `;
 
 // Tab components
@@ -36,7 +45,7 @@ const Tabs = () => {
 
     return (
         <>
-            <TabsContainer>
+            <TabsContainer  >
                 <Tab onClick={() => setActiveTab('tab1')} active={activeTab === 'tab1'}>
                     Identification
                 </Tab>
@@ -44,7 +53,13 @@ const Tabs = () => {
                     Diagnosis
                 </Tab>
             </TabsContainer>
-            {activeTab === 'tab1' && <TabContent>Content for tab 1</TabContent>}
+            {activeTab === 'tab1' && <TabContent  >
+                <Infocard plant="tree" percent="50%" img={Mammillaria} />
+                <div style={{ display: "flex", justifyContent: 'space-between', gap: '9px' }}>
+                    <Infocard plant="tree" percent="50%" img={plant2} />
+                    <Infocard plant="tree" percent="50%" img={plant3} />
+                </div>
+            </TabContent >}
             {activeTab === 'tab2' && <TabContent>Content for tab 2</TabContent>}
         </>
     );

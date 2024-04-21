@@ -1,13 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 import DrMessage from '../components/drMessage';
-import image1 from '../icons/history_image 1.png';
-import image2 from '../icons/history_image 2.png';
-import image3 from '../icons/history_image 3.png';
-import image4 from '../icons/history_image 4.png';
+import image1 from '../images/history_image 1.png';
+import image2 from '../images/history_image 2.png';
+import image3 from '../images/history_image 3.png';
+import image4 from '../images/history_image 4.png';
 import time_icon from '../icons/Time.png';
 import identify_icon from '../icons/Scanning.png'
 import diagnosis_icon from '../icons/Stethoscope.png'
+import NavBar from '../components/navBar';
 
 
 const PageContainer = styled.div`
@@ -77,13 +78,13 @@ const History = () => {
                     <MessageContent>
                         <Title>{message.title}</Title>
                         <div style={{ display: "flex", gap: "4px" }}>
-                            <div className="badge badge-ghost badge-sm">
+                            <div className="badge badge-ghost badge-sm" style={{ backgroundColor: "#F6F6F6", border: "none" }}>
                                 <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
                                     <img src={message.icon} style={{ width: "12px", height: "12px" }} />
                                     <div style={{ color: "#A9A9A9", fontSize: "10px" }}>{message.content}</div>
                                 </div>
                             </div>
-                            <div className="badge badge-ghost badge-sm">
+                            <div className="badge badge-ghost badge-sm" style={{ backgroundColor: "#F6F6F6", border: "none" }}>
                                 <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
                                     <img src={time_icon} style={{ width: "12px", height: "12px" }} />
                                     <div style={{ color: "#A9A9A9", fontSize: "10px" }}>{message.date}</div>
@@ -93,8 +94,12 @@ const History = () => {
                         <Description>{message.description}</Description>
                     </MessageContent>
                 </ChatBubble>
-            ))}
-        </PageContainer>
+            ))
+            }
+            <div className="nav-bar-container">
+                <NavBar activeButtonId={1} />
+            </div>
+        </PageContainer >
     );
 }
 

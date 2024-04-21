@@ -1,0 +1,45 @@
+.camera-identify-bar-container {
+    margin-bottom: 3%;
+    left: 0; 
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%; 
+  }
+  
+  .camera {
+    display: flex;
+    flex-direction: column;
+    height: 100%; 
+}
+
+.content-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* Ensures elements are aligned to the bottom */
+  height: 100%;
+  position: relative; /* Relative positioning for absolute children */
+}
+
+.nav-bar-container {
+  position: absolute;
+  bottom: 3%;
+  left: 0; 
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%; 
+}
+
+.green-text {
+  color: #B4EF4C; 
+}
+
+.green-button {
+  background-color: #B4EF4C; 
+  ; 
+}
