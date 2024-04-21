@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/home";
 import Description from "./pages/description";
 import History from "./pages/history";
-
+import Identify from "./pages/identify";
 import Community from "./pages/community";
 
 export default function App() {
@@ -16,6 +16,8 @@ export default function App() {
           <Route path="description" element={<Description />} />
           <Route path="history" element={<History />} />
           <Route path="community" element={<Community />} />
+          <Route path="identify" element={<Identify />} />
+
         </Routes>
       </BrowserRouter>
     </div>
