@@ -2,7 +2,7 @@ import * as React from "react";
 import Gallery from '../icons/gallery.png';
 import text from '../icons/text.png';
 
-function CameraBottomBar() {
+function CameraBottomBar({ onTakePhoto }) {
     const [icon1Clicked, setIcon1Clicked] = React.useState(false);
     const [icon2Clicked, setIcon2Clicked] = React.useState(false);
     const [icon3Clicked, setIcon3Clicked] = React.useState(false);
@@ -13,6 +13,7 @@ function CameraBottomBar() {
 
     const handleIcon2Click = () => {
         setIcon2Clicked(!icon2Clicked);
+        onTakePhoto();
     };
 
     const handleIcon3Click = () => {
