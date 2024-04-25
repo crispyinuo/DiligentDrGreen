@@ -8,6 +8,7 @@ import History from "./pages/history";
 import Identify from "./pages/identify";
 import Community from "./pages/community";
 import Camera from "./pages/camera";
+import DetailsPage from './components/detail';
 
 export default function App() {
   return (
@@ -21,6 +22,7 @@ export default function App() {
             <Route path="community" element={<Community />} />
             <Route path="camera" element={<Camera />} />
             <Route path="identify" element={<Identify />} />
+            <Route path="/details" element={<DetailsPage />} />
           </Routes>
         </BrowserRouter>
       </div>

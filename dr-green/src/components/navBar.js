@@ -34,7 +34,7 @@ function NavBar({ activeButtonId }) {
     };
 
     return (
-        <div className="flex gap-1 justify-between items-center pl-2 py-1.5 pr-2 bg-white shadow-2xl max-w-[250px] rounded-[90px]">
+        <div className="flex gap-1 justify-between items-center pl-2 py-1.5 pr-2 bg-white shadow-2xl max-w-[250px] rounded-[90px] ">
             <button
                 className={`flex flex-col justify-center items-center px-6 py-1 rounded-[90px] ${active === 1 ? "bg-lime-300" : "bg-white"}`}
                 onClick={() => handleClick(1)}

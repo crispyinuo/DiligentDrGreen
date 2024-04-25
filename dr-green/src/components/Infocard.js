@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import styled from 'styled-components';
 
 
@@ -6,7 +7,7 @@ const Infocard = (props) => {
 
     return (
 
-        <div className="card bg-base-100 shadow-xl" style={{ flex: "1" }}>
+        <div className="card bg-base-100 shadow-xl" style={{ flex: "1", minWidth: '150px' }}>
             <figure   >
                 <img src={props.img} alt="Shoes" className="rounded-xl" />
             </figure>
@@ -16,7 +17,7 @@ const Infocard = (props) => {
                     <h2 className="card-title">{props.percent}</h2>
                 </div>
                 <div className="card-actions" >
-                    <button className="btn btn-primary" style={{ backgroundColor: '#B4EF4C', color: 'black', border: '0px' }}>Details</button>
+                    <button className="btn btn-primary" style={{ backgroundColor: '#B4EF4C', color: 'black', border: '0px' }} onClick={props.onDetailsClick}>Details</button>
                 </div>
             </div>
         </div>

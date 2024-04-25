@@ -32,7 +32,7 @@ const NavButton = styled.button`
 `;
 
 const IdentificationCard = styled.div`
-   height: 705px;
+  
   background-color: white;
   padding: 20px;
   margin: 20px 0;
@@ -97,9 +97,9 @@ function Identify() {
     return (
         <AppContainer>
             <Header>
-                <div style={{ display: "flex", paddingTop: "44px", paddingLeft: "20px" }}>
+                <button style={{ display: "flex", paddingTop: "44px", paddingLeft: "20px" }}>
                     <img src={return_icon} style={{ height: "24px", width: "24px" }}></img>
-                </div>
+                </button>
                 <IdentificationCard>
                     <Tabs />
                     <div className="nav-bar-container">
