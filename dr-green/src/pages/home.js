@@ -39,8 +39,8 @@ function DoctorShade() {
 function GetStarted() {
     const navigate = useNavigate();
 
-    const navigateToHistory = () => {
-        navigate('/history');
+    const navigateToLogin = () => {
+        navigate('/login');
     };
     return (
         <div className="flex flex-col pl-5 mt-7 w-full">
@@ -49,7 +49,7 @@ function GetStarted() {
                     Let's get started
                 </h2>
                 <button
-                    onClick={navigateToHistory}
+                    onClick={navigateToLogin}
                     className="flex justify-center items-center p-6 green-button rounded-[90px] mr-5 cursor-pointer button-green" // Added margin-right (mr-5) and cursor-pointer
                     style={{ border: 'none', color: 'white' }}>
                     <img loading="lazy" src={Next} alt="Navigate" />
