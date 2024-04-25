@@ -51,7 +51,7 @@ body {
 .mobile-view-container {
   width: 393px;
   /* iPhone 14 Pro width */
-  height: 798px;
+  height: 777px;
   /* iPhone 14 Pro height - status bar height*/
   margin: auto;
   border: 1px solid #ccc;

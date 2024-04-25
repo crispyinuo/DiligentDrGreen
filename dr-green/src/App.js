@@ -9,6 +9,7 @@ import Identify from "./pages/identify";
 import Community from "./pages/community";
 import Camera from "./pages/camera";
 import DetailsPage from './components/detail';
+import ConfirmPhoto from "./pages/confirmPhoto";
 
 export default function App() {
   return (
@@ -23,6 +24,7 @@ export default function App() {
             <Route path="camera" element={<Camera />} />
             <Route path="identify" element={<Identify />} />
             <Route path="/details" element={<DetailsPage />} />
+            <Route path="confirm" element={<ConfirmPhoto />} />
           </Routes>
         </BrowserRouter>
       </div>
