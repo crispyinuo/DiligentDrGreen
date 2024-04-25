@@ -2,13 +2,14 @@ import * as React from "react";
 import Gallery from '../icons/gallery.png';
 import text from '../icons/text.png';
 
-function CameraBottomBar({ onTakePhoto }) {
+function CameraBottomBar({ onTakePhoto, onImageUpload }) {
     const [icon1Clicked, setIcon1Clicked] = React.useState(false);
     const [icon2Clicked, setIcon2Clicked] = React.useState(false);
     const [icon3Clicked, setIcon3Clicked] = React.useState(false);
 
     const handleIcon1Click = () => {
         setIcon1Clicked(!icon1Clicked);
+        onImageUpload();
     };
 
     const handleIcon2Click = () => {

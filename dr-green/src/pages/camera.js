@@ -10,6 +10,29 @@ function Camera() {
     const [photoData, setPhotoData] = useState(null);
     const navigate = useNavigate();
     const [isNavigating, setIsNavigating] = useState(false);
+    const [image, setImage] = useState(null);
+    const [previewUrl, setPreviewUrl] = useState('');
+    const fileInputRef = useRef(null);
+    // Trigger file input
+    const triggerFileInput = () => {
+        fileInputRef.current.click();
+    };
+
+    // Handle image file selection
+    const handleImageChange = (event) => {
+        const selectedFile = event.target.files[0];
+        if (selectedFile && selectedFile.type.startsWith('image')) {
+            setImage(selectedFile);
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setPreviewUrl(reader.result);
+                navigate('/confirm', { state: { photo: reader.result } });
+            };
+            reader.readAsDataURL(selectedFile);
+        } else {
+            alert('Please select an image file.');
+        }
+    };
 
     useEffect(() => {
         const getVideo = () => {
@@ -98,12 +121,19 @@ function Camera() {
                 <div className="photoContainer">
                     <video ref={videoRef} className="video-feed"></video>
                     <canvas ref={photoRef} style={{ display: 'none' }}></canvas>
+                    <input
+                        type="file"
+                        accept="image/*"
+                        ref={fileInputRef}
+                        onChange={handleImageChange}
+                        style={{ display: 'none', margin: '20px 0' }}
+                    />
                 </div>
                 <div className="camera-identify-bar-container">
                     <IdentifyDiagnosisBar />
                 </div>
             </div>
-            <CameraBottomBar onTakePhoto={takePhoto} />
+            <CameraBottomBar onTakePhoto={takePhoto} onImageUpload={triggerFileInput} />
         </div>
     );
 }
