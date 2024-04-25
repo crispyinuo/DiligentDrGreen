@@ -39,19 +39,38 @@ function Camera() {
         let photo = photoRef.current;
         let ctx = photo.getContext('2d');
 
-        const width = video.clientWidth;
-        const height = video.clientHeight;
+        // Set canvas size to the desired output size
+        const outputWidth = video.clientWidth;
+        const outputHeight = video.clientHeight;
+        photo.width = outputWidth;
+        photo.height = outputHeight;
 
-        photo.width = width;
-        photo.height = height;
+        // Calculate the crop dimensions to maintain the aspect ratio of the canvas
+        let sx, sy, sWidth, sHeight;
+        const videoRatio = video.videoWidth / video.videoHeight;
+        const outputRatio = outputWidth / outputHeight;
 
-        ctx.drawImage(video, 0, 0, video.videoWidth, video.videoHeight, 0, 0, width, height);
+        if (videoRatio > outputRatio) {
+            // Video is wider than desired aspect ratio
+            sHeight = video.videoHeight;
+            sWidth = sHeight * outputRatio;
+            sx = (video.videoWidth - sWidth) / 2; // Center the crop horizontally
+            sy = 0;
+        } else {
+            // Video is taller or equal in aspect ratio
+            sWidth = video.videoWidth;
+            sHeight = sWidth / outputRatio;
+            sx = 0;
+            sy = (video.videoHeight - sHeight) / 2; // Center the crop vertically
+        }
+
+        // Draw the cropped video to the canvas
+        ctx.drawImage(video, sx, sy, sWidth, sHeight, 0, 0, outputWidth, outputHeight);
 
         const photoDataUrl = photo.toDataURL("image/png");
         setPhotoData(photoDataUrl);
         navigate('/confirm', { state: { photo: photoDataUrl } });
     };
-
 
     const downloadPhoto = () => {
         const photo = photoRef.current;
