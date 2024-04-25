@@ -10,6 +10,7 @@ import Community from "./pages/community";
 import Camera from "./pages/camera";
 import DetailsPage from './components/detail';
 import ConfirmPhoto from "./pages/confirmPhoto";
+import Login from "./pages/login";
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="login" element={<Login />} />
             <Route path="description" element={<Description />} />
             <Route path="history" element={<History />} />
             <Route path="community" element={<Community />} />
