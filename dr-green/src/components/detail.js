@@ -153,7 +153,7 @@ const Detail = ({ navigation, route }) => {
                                     <h1 style={{ fontWeight: 'bold', fontSize: '18px' }}>{contentType}</h1>
                                     <ul style={{ listStyleType: 'disc', paddingLeft: '15px' }}>
                                         {
-                                            contentType === 'identify' ? (
+                                            contentType === 'Taxonomy' ? (
                                                 <>
                                                     <li>Kindom: {diagnosis.state.taxonomy['kingdom']} </li>
                                                     <li>Phylum: {diagnosis.state.taxonomy['phylum']}  </li>

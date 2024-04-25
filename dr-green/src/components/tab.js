@@ -217,7 +217,7 @@ const Tabs = () => {
                             <Infocard plant={result[0]['name']} percent={convertToPercentage(result[0]["probability"])} img={result[0]['similar_images'][0]['url']} onDetailsClick={() => handleDetailsClick(0, identificationData['access_token'], "identify")} />
                             <div style={{ display: "flex", justifyContent: 'space-between', gap: '9px' }}>
                                 <Infocard plant={result[1]['name']} percent={convertToPercentage(result[1]["probability"])} img={result[1]['similar_images'][0]['url']} onDetailsClick={() => handleDetailsClick(1, identificationData['access_token'], "identify")} />
-                                <Infocard plant="tree" percent="50%" img={plant3} onDetailsClick={() => handleDetailsClick(0, identificationData['access_token'], "identify")} />
+                                <Infocard plant="Malus" percent="15.2%" img="https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/3/85f/6d928b9babca5612b6e5f31df768b8c12ecaa.jpeg" onDetailsClick={() => handleDetailsClick(0, identificationData['access_token'], "identify")} />
                             </div>
                         </>
                     ) : (
@@ -231,7 +231,7 @@ const Tabs = () => {
                             <Infocard plant={diagnosis[0]['name']} percent={convertToPercentage(diagnosis[0]["probability"])} img={diagnosis[0]['similar_images'][0]['url']} onDetailsClick={() => handleDetailsClick(0, diagnosisData['access_token'], "diagnosis")} />
                             <div style={{ display: "flex", justifyContent: 'space-between', gap: '9px' }}>
                                 <Infocard plant={diagnosis[1]['name']} percent={convertToPercentage(diagnosis[1]["probability"])} img={diagnosis[1]['similar_images'][0]['url']} onDetailsClick={() => handleDetailsClick(1, diagnosisData['access_token'], "diagnosis")} />
-                                <Infocard plant="tree" percent="50%" img={plant3} onDetailsClick={() => handleDetailsClick(0, diagnosisData['access_token'], "diagnosis")} />
+                                <Infocard plant="finished flowering period" percent="0.015%" img="https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/3/9fd/b24b6973b577429b9064e32c4b4d2ca3725a8.jpg" onDetailsClick={() => handleDetailsClick(2, diagnosisData['access_token'], "diagnosis")} />
                             </div>
                         </>
                     ) : (
