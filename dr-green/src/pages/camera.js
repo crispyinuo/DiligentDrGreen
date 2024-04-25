@@ -18,13 +18,16 @@ function Camera() {
                     let video = videoRef.current;
                     if (video) {
                         video.srcObject = stream;
-                        video.play();
+                        video.play().catch(err => {
+                            console.error("Error attempting to play the video: ", err);
+                        });
                     }
                 })
                 .catch(err => {
                     console.error("Error accessing the camera:", err);
                 });
         };
+
 
         getVideo();
 
