@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import IdentifyDiagnosisBar from '../components/identifyDiagnosisBar';
 import CameraTopBar from '../components/cameraTopBar';
+import ConfirmBottomBar from '../components/confirmBottomBar';
 
 function ConfirmPhoto() {
     const navigate = useNavigate();
@@ -19,20 +19,19 @@ function ConfirmPhoto() {
     };
 
     const handleRetake = () => {
-        navigate('/');
+        navigate('/camera');
     };
 
     return (
-        <div>
+        <div className="confirm">
             <CameraTopBar />
             <div className="content-container">
-                <div className="camera-identify-bar-container">
-                    <IdentifyDiagnosisBar />
+                <div className="photoContainer">
+                    <img src={photo} alt="Captured" />
                 </div>
+                <ConfirmBottomBar onConfirmClick={handleConfirm} onRetakeClick={handleRetake} />
             </div>
-            <img src={photo} alt="Captured" style={{ maxWidth: '100%' }} />
-            <button onClick={handleConfirm}>Confirm</button>
-            <button onClick={handleRetake}>Retake</button>
+
         </div>
     );
 }
