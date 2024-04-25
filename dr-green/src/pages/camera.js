@@ -7,7 +7,6 @@ import CameraTopBar from '../components/cameraTopBar';
 function Camera() {
     const videoRef = useRef(null);
     const photoRef = useRef(null);
-    const [hasPhoto, setHasPhoto] = useState(false);
     const [photoData, setPhotoData] = useState(null);
     const navigate = useNavigate();
     const [isNavigating, setIsNavigating] = useState(false);
@@ -32,24 +31,27 @@ function Camera() {
         return () => {
             if (isNavigating) closeCamera();
         };
+
     }, [isNavigating]); // Trigger cleanup when isNavigating changes
 
     const takePhoto = () => {
-        const width = 640;
-        const height = 480;
         let video = videoRef.current;
         let photo = photoRef.current;
         let ctx = photo.getContext('2d');
 
-        if (width && height) {
-            photo.width = width;
-            photo.height = height;
-            ctx.drawImage(video, 0, 0, width, height);
-            const photoDataUrl = photo.toDataURL("image/png");
-            setPhotoData(photoDataUrl);
-            navigate('/confirm', { state: { photo: photoDataUrl } });
-        }
+        const width = video.clientWidth;
+        const height = video.clientHeight;
+
+        photo.width = width;
+        photo.height = height;
+
+        ctx.drawImage(video, 0, 0, video.videoWidth, video.videoHeight, 0, 0, width, height);
+
+        const photoDataUrl = photo.toDataURL("image/png");
+        setPhotoData(photoDataUrl);
+        navigate('/confirm', { state: { photo: photoDataUrl } });
     };
+
 
     const downloadPhoto = () => {
         const photo = photoRef.current;
@@ -65,20 +67,21 @@ function Camera() {
         if (video.srcObject) {
             video.srcObject.getTracks().forEach(track => track.stop());
         }
-        setHasPhoto(false);
+        setPhotoData(null);
     };
     return (
         <div className="camera">
             <CameraTopBar />
-            <video ref={videoRef} className="video-feed"></video>
-            {/* <h1>Welcome to the Camera Page</h1> */}
             <div className="content-container">
+                <div className="photoContainer">
+                    <video ref={videoRef} className="video-feed"></video>
+                    <canvas ref={photoRef} style={{ display: 'none' }}></canvas>
+                </div>
                 <div className="camera-identify-bar-container">
                     <IdentifyDiagnosisBar />
                 </div>
-                <canvas ref={photoRef} style={{ display: hasPhoto ? 'block' : 'none' }}></canvas>
-                <CameraBottomBar onTakePhoto={takePhoto} />
             </div>
+            <CameraBottomBar onTakePhoto={takePhoto} />
         </div>
     );
 }
