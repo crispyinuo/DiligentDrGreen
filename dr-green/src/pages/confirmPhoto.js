@@ -29,9 +29,8 @@ function ConfirmPhoto() {
                 <div className="photoContainer">
                     <img src={photo} alt="Captured" />
                 </div>
-                <ConfirmBottomBar onConfirmClick={handleConfirm} onRetakeClick={handleRetake} />
             </div>
-
+            <ConfirmBottomBar onConfirmClick={handleConfirm} onRetakeClick={handleRetake} />
         </div>
     );
 }

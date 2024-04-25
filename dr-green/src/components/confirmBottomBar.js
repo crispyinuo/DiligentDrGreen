@@ -18,11 +18,11 @@ function ConfirmBottomBar({ onRetakeClick, onConfirmClick }) {
     };
 
     return (
-        <div className="flex flex-col justify-center pt-2 pb-7 bg-white bg-blend-hard-light backdrop-blur-[25px] max-w-[393px]">
-            <div className="flex gap-10 justify-center items-center px-16 w-full">
+        <div className="flex flex-col justify-center pt-3 pb-7 bg-white bg-blend-hard-light backdrop-blur-[25px] h-[84px]">
+            <div className="flex gap-2 justify-between items-center px-24 w-full">
                 <button
                     onClick={handleIcon1Click}
-                    className="shrink-0 self-stretch my-auto w-7 aspect-square"
+                    className="shrink-0 self-stretch my-auto w-12 aspect-square"
                 >
                     <img
                         loading="lazy"
@@ -34,7 +34,7 @@ function ConfirmBottomBar({ onRetakeClick, onConfirmClick }) {
 
                 <button
                     onClick={handleIcon2Click}
-                    className="shrink-0 self-stretch my-auto w-7 aspect-square"
+                    className="shrink-0 self-stretch my-auto w-12 aspect-square"
                 >
                     <img
                         loading="lazy"
@@ -47,6 +47,5 @@ function ConfirmBottomBar({ onRetakeClick, onConfirmClick }) {
         </div>
     );
 }
-
 
 export default ConfirmBottomBar;

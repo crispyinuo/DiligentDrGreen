@@ -21,7 +21,7 @@ function CameraBottomBar({ onTakePhoto }) {
     };
 
     return (
-        <div className="flex flex-col justify-center pt-2 pb-7 bg-white bg-blend-hard-light backdrop-blur-[25px] max-w-[393px]">
+        <div className="flex flex-col justify-center pt-3 pb-7 bg-white bg-blend-hard-light backdrop-blur-[25px] h-[84px]">
             <div className="flex gap-5 justify-between items-center px-16 w-full">
                 <button
                     onClick={handleIcon1Click}
