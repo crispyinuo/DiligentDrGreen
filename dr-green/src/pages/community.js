@@ -2,6 +2,7 @@ import * as React from "react";
 import NavBar from '../components/navBar';
 import DrMessage from '../components/drMessage';
 import CommunityCard from "../components/communityCard";
+import RoundButton from "../components/roundButton";
 import styled from "styled-components";
 import Cactus from "../images/cactus.png";
 import Succulents from "../images/succulents.png";
@@ -24,10 +25,9 @@ const CardsContainer = styled.div`
   grid-template-columns: repeat(2, 1fr);
   gap: 16px;
   width: 100%;
-  margin-top: 16px;
   padding: 0 16px; 
   overflow-y: scroll; 
-  max-height:70vh; 
+  max-height:60vh; 
   grid-auto-rows: 1fr;
   padding-bottom: 100px;
 `;
@@ -46,6 +46,14 @@ function Community() {
         { name: "Fern", image: Fern, isPopular: false },
     ];
 
+    const handleSkip = () => {
+        // Define what should happen when "Skip" is clicked
+    };
+
+    const handleNext = () => {
+        // Define what should happen when "Next" is clicked
+    };
+
     return (
         <PageContainer>
             <DrMessage message="Choose groups of your interest!" />
@@ -58,6 +66,10 @@ function Community() {
                     return <CommunityCard key={index} name={group.name} imageSrc={group.image} isPopular={group.isPopular} />;
                 })}
             </CardsContainer>
+            <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%', padding: '0 16px' }}>
+                <RoundButton text="Skip" onClick={handleSkip} />
+                <RoundButton text="Next" onClick={handleNext} stage="disenabled" />
+            </div>
             <div className="nav-bar-container">
                 <NavBar activeButtonId={3} />
             </div>

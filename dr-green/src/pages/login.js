@@ -1,5 +1,5 @@
 import * as React from "react";
-import Button from "../components/button";
+import RoundButton from "../components/roundButton";
 import Lock from "../icons/lock.png";
 import Mail from "../icons/mail.png";
 import { useNavigate } from 'react-router-dom';
@@ -29,7 +29,7 @@ function Login() {
             <form className="flex flex-col items-center pt-10">
                 <InputField icon={Mail} placeholder="Email" />
                 <InputField icon={Lock} placeholder="Password" />
-                <Button text="Login" onClick={navigateToHistory} className="pt-10" />
+                <RoundButton text="Login" stage="active" onClick={navigateToHistory} className="pt-10" />
             </form>
             <div className="flex gap-2 self-center mt-2 text-xs tracking-tight leading-5">
                 <div className="text-neutral-400">Don't have an account?</div>
