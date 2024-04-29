@@ -11,6 +11,7 @@ import Camera from "./pages/camera";
 import DetailsPage from './components/detail';
 import ConfirmPhoto from "./pages/confirmPhoto";
 import Login from "./pages/login";
+import Feed from "./pages/feed";
 
 export default function App() {
   return (
@@ -25,8 +26,9 @@ export default function App() {
             <Route path="community" element={<Community />} />
             <Route path="camera" element={<Camera />} />
             <Route path="identify" element={<Identify />} />
-            <Route path="/details" element={<DetailsPage />} />
+            <Route path="details" element={<DetailsPage />} />
             <Route path="confirm" element={<ConfirmPhoto />} />
+            <Route path="feed" element={<Feed />} />
           </Routes>
         </BrowserRouter>
       </div>

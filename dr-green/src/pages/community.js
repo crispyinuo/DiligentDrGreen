@@ -10,6 +10,7 @@ import Monstera from "../images/monstera.png";
 import PeaceLily from "../images/peacelily.png";
 import ZzPlant from "../images/zzplant.png";
 import Fern from "../images/fern.png";
+import { useNavigate } from 'react-router-dom';
 
 const PageContainer = styled.div`
   display: flex;
@@ -37,6 +38,9 @@ const OffsetCard = styled(CommunityCard)`
 `;
 
 function Community() {
+
+    const navigate = useNavigate();
+
     const groupData = [
         { name: "Cactus", image: Cactus, isPopular: true },
         { name: "Succulents", image: Succulents, isPopular: true },
@@ -47,8 +51,8 @@ function Community() {
     ];
 
     const handleSkip = () => {
-        // Define what should happen when "Skip" is clicked
-    };
+        navigate('/feed');
+    }
 
     const handleNext = () => {
         // Define what should happen when "Next" is clicked
