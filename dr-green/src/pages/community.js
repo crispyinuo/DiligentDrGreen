@@ -29,6 +29,7 @@ const CardsContainer = styled.div`
   overflow-y: scroll; 
   max-height:70vh; 
   grid-auto-rows: 1fr;
+  padding-bottom: 100px;
 `;
 
 const OffsetCard = styled(CommunityCard)`
@@ -57,7 +58,9 @@ function Community() {
                     return <CommunityCard key={index} name={group.name} imageSrc={group.image} isPopular={group.isPopular} />;
                 })}
             </CardsContainer>
-            <NavBar activeButtonId={3} />
+            <div className="nav-bar-container">
+                <NavBar activeButtonId={3} />
+            </div>
         </ PageContainer>
     );
 }
