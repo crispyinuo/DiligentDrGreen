@@ -98,9 +98,10 @@ const ContentArea = styled.div`
 function Identify() {
     const location = useLocation();
     const photo = location.state?.photo;
+    const type = location.state.type;
     const navigate = useNavigate();
     const handleClick = () => {
-        console.log("Button clicked!");
+
         // Additional action
         navigate(-1);
     };
@@ -111,7 +112,7 @@ function Identify() {
                     <img src={return_icon} style={{ height: "24px", width: "24px" }}></img>
                 </button>
                 <IdentificationCard>
-                    <Tabs photo={photo} />
+                    <Tabs photo={photo} type={type} />
                     <div className="nav-bar-container">
                         <NavBar activeButtonId={2} />
                     </div>

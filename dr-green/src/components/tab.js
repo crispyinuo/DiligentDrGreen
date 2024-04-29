@@ -49,8 +49,14 @@ const TabContent = ({ children }) => {
 
 
 // Main component
-const Tabs = ({ photo }) => {
+const Tabs = ({ photo, type }) => {
     const [activeTab, setActiveTab] = useState('tab1');
+    useEffect(() => {
+        // Determine which tab should be active based on the photo parameter
+        console.log(type);
+        const newActiveTab = type == "1" ? 'tab1' : 'tab2';
+        setActiveTab(newActiveTab);
+    }, [type]);
     const [data, setData] = useState(null);
     const [base64Image, setBase64Image] = useState('');
     const [identificationData, setIdentificationData] = useState(null);
@@ -61,7 +67,7 @@ const Tabs = ({ photo }) => {
         return (decimalNumber * 100).toFixed(2) + '%';
     };
     const realimageURL = { photo }
-    console.log(realimageURL.photo);
+    //console.log(realimageURL.photo);
     const fetchIdentificationData = () => {
 
         const imageURL = 'https://media.istockphoto.com/id/483451251/photo/fungal-attack.jpg?s=612x612&w=0&k=20&c=PM0Lld99Io4DU6sRqemkytZUkuSF5effOJ8fhIAXwVo=';
@@ -111,7 +117,7 @@ const Tabs = ({ photo }) => {
     }, [activeTab, identificationData, diagnosisData]);
 
     function uploadImage(base64Data, func) {
-        console.log(base64Data)
+        //console.log(base64Data)
         fetch('https://plant.id/api/v3/' + func, {
             method: 'POST',
             headers: {
@@ -138,18 +144,19 @@ const Tabs = ({ photo }) => {
     }
     const result = identificationData ? identificationData["result"]["classification"]["suggestions"] : null;
     const diagnosis = diagnosisData ? diagnosisData["result"]["disease"]["suggestions"] : null;
-    console.log(diagnosis)
+    // console.log(diagnosis);
+    // console.log(result);
     //console.log(identificationData['access_token'])
     //const history = useHistory();  // Get access to the history instance
     const navigate = useNavigate();
 
     const handleDetailsClick = (param, access_token, func) => {
-        console.log("Parameter passed to function:", param);
-        console.log(result);
-        console.log(access_token);
+        // console.log("Parameter passed to function:", param);
+        // console.log(result);
+        // console.log(access_token);
         checkTaskStatus(access_token)
             .then(data => {
-                console.log(data);
+                //console.log(data);
                 //console.log(descriptionData);
                 if (func == "identify") {
                     navigate('/details/', {
@@ -185,7 +192,7 @@ const Tabs = ({ photo }) => {
     //console.log(result);
     const checkTaskStatus = (access_token) => {
         //if (!taskId) return;  // Ensure there is a taskId set
-        console.log(access_token);
+        //console.log(access_token);
         return new Promise((resolve, reject) => {
             fetch('https://plant.id/api/v3/identification/' + access_token + '?details=common_names%2Curl%2Ctreatment%2Cdescription%2Ctaxonomy%2Crank%2Cgbif_id%2Cinaturalist_id%2Cimage%2Csynonyms%2Cedible_parts%2Cwatering%20&language=en',
                 {

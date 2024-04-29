@@ -26,7 +26,7 @@ function Camera() {
             const reader = new FileReader();
             reader.onloadend = () => {
                 setPreviewUrl(reader.result);
-                navigate('/confirm', { state: { photo: reader.result } });
+                navigate('/confirm', { state: { photo: reader.result, type: activeButton } });
             };
             reader.readAsDataURL(selectedFile);
         } else {
@@ -95,7 +95,7 @@ function Camera() {
 
         const photoDataUrl = photo.toDataURL("image/png");
         setPhotoData(photoDataUrl);
-        navigate('/confirm', { state: { photo: photoDataUrl } });
+        navigate('/confirm', { state: { photo: photoDataUrl, type: activeButton } });
     };
 
     const downloadPhoto = () => {
@@ -114,6 +114,12 @@ function Camera() {
         }
         setPhotoData(null);
     };
+    const [activeButton, setActiveButton] = useState(1);  // State to track which button is active
+
+    // Callback function to update the active button
+    const handleActiveButtonChange = (buttonId) => {
+        setActiveButton(buttonId);
+    };
     return (
         <div className="camera">
             <CameraTopBar />
@@ -130,7 +136,7 @@ function Camera() {
                     />
                 </div>
                 <div className="camera-identify-bar-container">
-                    <IdentifyDiagnosisBar />
+                    <IdentifyDiagnosisBar onActiveChange={handleActiveButtonChange} />
                 </div>
             </div>
             <CameraBottomBar onTakePhoto={takePhoto} onImageUpload={triggerFileInput} />

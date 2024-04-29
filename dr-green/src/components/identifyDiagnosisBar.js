@@ -7,13 +7,14 @@ import DiagnosisActive from '../icons/Diagnosis_active.png';
 import DiagnosisInactive from '../icons/Diagnosis_inactive.png';
 import '../style.css';
 
-function IdentifyDiagnosisBar() {
+function IdentifyDiagnosisBar({ onActiveChange }) {
     const [active, setActive] = React.useState(1);  // State to track the active button
 
     // Function to handle click events
     const handleClick = (buttonId) => {
         console.log(`Clicked button ${buttonId}`);
         setActive(buttonId);  // Set the active button state
+        onActiveChange(buttonId);
     };
 
     return (

@@ -120,9 +120,10 @@ const HorizontalLine = styled.hr`
 const Detail = ({ navigation, route }) => {
     const diagnosis = useLocation();
     const contentType = diagnosis.state.type;
-    console.log(diagnosis.state.name)
-    console.log("diagnosis")
-    console.log(diagnosis.state.taxonomy)
+    // console.log(diagnosis.state.name)
+    // console.log("diagnosis")
+    // console.log(diagnosis.state.treatment)
+    // console.log(diagnosis.state.taxonomy)
     const navigate = useNavigate();
     const handleClick = () => {
         console.log("Button clicked!");

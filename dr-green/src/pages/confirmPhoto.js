@@ -6,7 +6,8 @@ import ConfirmBottomBar from '../components/confirmBottomBar';
 function ConfirmPhoto() {
     const navigate = useNavigate();
     const location = useLocation();
-    const { photo } = location.state;
+    const { photo, type } = location.state;
+
 
     const handleConfirm = () => {
         // Process the photo (store or send to API)
@@ -16,7 +17,7 @@ function ConfirmPhoto() {
         link.href = photo;
         link.download = "confirmed_photo.png";
         link.click();
-        navigate('/identify', { state: { photo: photo } })
+        navigate('/identify', { state: { photo: photo, type: type } })
     };
 
     const handleRetake = () => {
