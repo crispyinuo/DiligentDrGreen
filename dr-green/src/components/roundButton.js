@@ -1,6 +1,6 @@
 import * as React from "react";
 
-function Button({ text, onClick, stage }) {
+function RoundButton({ text, onClick, stage }) {
     let backgroundColor, textColor, clickHandler;
 
     switch (stage) {
@@ -29,4 +29,4 @@ function Button({ text, onClick, stage }) {
     );
 }
 
-export default Button;
+export default RoundButton;

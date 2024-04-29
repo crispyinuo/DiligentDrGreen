@@ -70,6 +70,8 @@ function Community() {
         navigate('/feed'); // Adjust the navigation target
     };
 
+    const getNextButtonStage = () => selectedGroups.size > 0 ? 'active' : 'disenabled';
+
     return (
         <PageContainer>
             <DrMessage message="Choose groups of your interest!" />
@@ -98,7 +100,7 @@ function Community() {
             </CardsContainer>
             <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%', padding: '0 16px' }}>
                 <RoundButton text="Skip" onClick={handleSkip} />
-                <RoundButton text="Next" onClick={handleNext} disabled={selectedGroups.size === 0} />
+                <RoundButton text="Next" onClick={handleNext} stage={getNextButtonStage()} />
             </div>
             <div className="nav-bar-container">
                 <NavBar activeButtonId={3} />
