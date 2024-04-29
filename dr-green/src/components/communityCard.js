@@ -2,9 +2,9 @@ import * as React from 'react';
 import FireIcon from '../icons/fire.png';
 import RectangleButton from '../components/rectangleButton';
 
-function CommunityCard({ name, imageSrc, isPopular = false }) {
+function CommunityCard({ name, imageSrc, isPopular = false, onSelect, selected }) {
     return (
-        <div className="flex flex-col p-2 font-bold text-black whitespace-nowrap bg-white rounded-2xl max-w-[172px]" >
+        <div className={`flex flex-col p-2 font-bold text-black whitespace-nowrap ${selected ? 'bg-lime-300' : 'bg-white'} rounded-2xl max-w-[172px]`} >
             <div className="relative">
                 <img
                     loading="lazy"
@@ -18,7 +18,7 @@ function CommunityCard({ name, imageSrc, isPopular = false }) {
             </div>
             <div className="flex gap-1.5 justify-between mt-2">
                 <div className="my-auto text-lg tracking-tight leading-5">{name}</div>
-                <RectangleButton text="Join" />
+                <RectangleButton text={selected ? "Exit" : "Join"} onClick={() => onSelect(name)} selected={selected} />
             </div>
         </ div>
     );

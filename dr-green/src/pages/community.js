@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useState } from 'react';
 import NavBar from '../components/navBar';
 import DrMessage from '../components/drMessage';
 import CommunityCard from "../components/communityCard";
@@ -40,6 +41,7 @@ const OffsetCard = styled(CommunityCard)`
 function Community() {
 
     const navigate = useNavigate();
+    const [selectedGroups, setSelectedGroups] = useState(new Set());
 
     const groupData = [
         { name: "Cactus", image: Cactus, isPopular: true },
@@ -54,8 +56,18 @@ function Community() {
         navigate('/feed');
     }
 
+    const handleSelect = (name) => {
+        const newSelectedGroups = new Set(selectedGroups);
+        if (newSelectedGroups.has(name)) {
+            newSelectedGroups.delete(name);
+        } else {
+            newSelectedGroups.add(name);
+        }
+        setSelectedGroups(newSelectedGroups);
+    };
+
     const handleNext = () => {
-        // Define what should happen when "Next" is clicked
+        navigate('/feed'); // Adjust the navigation target
     };
 
     return (
@@ -65,14 +77,28 @@ function Community() {
                 {groupData.map((group, index) => {
                     const isOffset = index % 2 !== 0 && index === 1;
                     if (isOffset) {
-                        return <OffsetCard key={index} name={group.name} imageSrc={group.image} isPopular={group.isPopular} />;
+                        return <OffsetCard
+                            key={index}
+                            name={group.name}
+                            imageSrc={group.image}
+                            isPopular={group.isPopular}
+                            onSelect={handleSelect}
+                            selected={selectedGroups.has(group.name)}
+                        />
                     }
-                    return <CommunityCard key={index} name={group.name} imageSrc={group.image} isPopular={group.isPopular} />;
+                    return <CommunityCard
+                        key={index}
+                        name={group.name}
+                        imageSrc={group.image}
+                        isPopular={group.isPopular}
+                        onSelect={handleSelect}
+                        selected={selectedGroups.has(group.name)}
+                    />
                 })}
             </CardsContainer>
             <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%', padding: '0 16px' }}>
                 <RoundButton text="Skip" onClick={handleSkip} />
-                <RoundButton text="Next" onClick={handleNext} stage="disenabled" />
+                <RoundButton text="Next" onClick={handleNext} disabled={selectedGroups.size === 0} />
             </div>
             <div className="nav-bar-container">
                 <NavBar activeButtonId={3} />
