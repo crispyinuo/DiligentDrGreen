@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import Infocard from './Infocard';
+import error from '../images/Error.png'
 import Mammillaria from '../icons/Mammillaria.png'
 import plant2 from '../icons/plant2.png'
 import plant3 from '../icons/plant3.png'
@@ -179,7 +180,6 @@ const Tabs = ({ photo }) => {
     //console.log(result);
     const checkTaskStatus = (access_token) => {
         //if (!taskId) return;  // Ensure there is a taskId set
-        console.log("whyyyyyoulittleshit");
         console.log(access_token);
         return new Promise((resolve, reject) => {
             fetch('https://plant.id/api/v3/identification/' + access_token + '?details=common_names%2Curl%2Ctreatment%2Cdescription%2Ctaxonomy%2Crank%2Cgbif_id%2Cinaturalist_id%2Cimage%2Csynonyms%2Cedible_parts%2Cwatering%20&language=en',
@@ -247,7 +247,9 @@ const Tabs = ({ photo }) => {
                             ))}
                         </>
                     ) : (
-                        <div>No data available. Please try again later.</div>
+                        <div>
+                            <img src={error}></img>
+                        </div>
                     )}
                 </TabContent>)}
 
