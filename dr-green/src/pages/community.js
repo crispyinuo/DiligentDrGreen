@@ -2,29 +2,65 @@ import * as React from "react";
 import NavBar from '../components/navBar';
 import DrMessage from '../components/drMessage';
 import CommunityCard from "../components/communityCard";
+import styled from "styled-components";
+import Cactus from "../images/cactus.png";
+import Succulents from "../images/succulents.png";
+import Monstera from "../images/monstera.png";
+import PeaceLily from "../images/peacelily.png";
+import ZzPlant from "../images/zzplant.png";
+import Fern from "../images/fern.png";
+
+const PageContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden; 
+  max-height: 100vh; // 100% of the viewport height
+  width: 100%;       
+`;
+
+const CardsContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  width: 100%;
+  margin-top: 16px;
+  padding: 0 16px; 
+  overflow-y: scroll; 
+  max-height:70vh; 
+  grid-auto-rows: 1fr;
+`;
+
+const OffsetCard = styled(CommunityCard)`
+  margin-top: 200px; 
+`;
 
 function Community() {
     const groupData = [
-        { name: "Plant 1", image: "https://images.unsplash.com/photo-1597305877032-0668b3c6413a?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cGxhbnR8ZW58MHx8MHx8fDA%3D" },
-        { name: "Plant 2", image: "https://images.unsplash.com/photo-1545147986-a9d6f2ab03b5?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHBsYW50fGVufDB8fDB8fHww" },
+        { name: "Cactus", image: Cactus, isPopular: true },
+        { name: "Succulents", image: Succulents, isPopular: true },
+        { name: "Monstera", image: Monstera, isPopular: false },
+        { name: "Peace Lily", image: PeaceLily, isPopular: false },
+        { name: "Zz Plant", image: ZzPlant, isPopular: false },
+        { name: "Fern", image: Fern, isPopular: false },
     ];
 
     return (
-        <main className="flex flex-col px-4 pt-16 w-full bg-zinc-100 min-h-screen">
+        <PageContainer>
             <DrMessage message="Choose groups of your interest!" />
-            <section className="flex flex-row gap-3 mt-8 overflow-x-auto">
-                {groupData.map((group, index) => (
-                    <React.Fragment key={index}>
-                        <CommunityCard name={group.name} imageSrc={group.image} />
-                        {index < groupData.length - 1 && <div className="mx-2" />}
-                    </React.Fragment>
-                ))}
-            </section>
-            <div className="nav-bar-container">
-                <NavBar activeButtonId={3} />
-            </div>
-        </main>
+            <CardsContainer>
+                {groupData.map((group, index) => {
+                    const isOffset = index % 2 !== 0 && index === 1;
+                    if (isOffset) {
+                        return <OffsetCard key={index} name={group.name} imageSrc={group.image} isPopular={group.isPopular} />;
+                    }
+                    return <CommunityCard key={index} name={group.name} imageSrc={group.image} isPopular={group.isPopular} />;
+                })}
+            </CardsContainer>
+            <NavBar activeButtonId={3} />
+        </ PageContainer>
     );
 }
 
 export default Community;
+

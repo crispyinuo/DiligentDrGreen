@@ -124,7 +124,7 @@ const History = () => {
 
     return (
         <PageContainer>
-            <DrMessage />
+            <DrMessage message="All your bookmarked findings are here!" />
             {messages.map((message) => (
                 <ChatBubble key={message.id} onClick={() => goToDetailPage(message.id)}>
                     <div class="avatar">
