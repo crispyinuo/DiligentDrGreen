@@ -16,6 +16,7 @@ function ConfirmPhoto() {
         link.href = photo;
         link.download = "confirmed_photo.png";
         link.click();
+        navigate('/identify', { state: { photo: photo } })
     };
 
     const handleRetake = () => {

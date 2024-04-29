@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import return_icon from "../icons/Arrow-left.png"
 import Tabs from '../components/tab';
 import NavBar from "../components/navBar";
+import { useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 const AppContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -94,14 +96,22 @@ const ContentArea = styled.div`
   min-height: 200px;
 `;
 function Identify() {
+    const location = useLocation();
+    const photo = location.state?.photo;
+    const navigate = useNavigate();
+    const handleClick = () => {
+        console.log("Button clicked!");
+        // Additional action
+        navigate(-1);
+    };
     return (
         <AppContainer>
             <Header>
-                <button style={{ display: "flex", paddingTop: "44px", paddingLeft: "20px" }}>
+                <button onClick={handleClick} style={{ display: "flex", paddingTop: "44px", paddingLeft: "20px" }}>
                     <img src={return_icon} style={{ height: "24px", width: "24px" }}></img>
                 </button>
                 <IdentificationCard>
-                    <Tabs />
+                    <Tabs photo={photo} />
                     <div className="nav-bar-container">
                         <NavBar activeButtonId={2} />
                     </div>
