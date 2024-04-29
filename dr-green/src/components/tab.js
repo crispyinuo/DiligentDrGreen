@@ -30,9 +30,13 @@ const Tab = styled.button`
 `;
 
 const ContentArea = styled.div`
-  min-height: 200px;
+  min-height: 600px;
   margin: 10px;
-
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; /* This centers children vertically */
+  height: 100%; /* You need a defined height for the container */
   
   
 `;
@@ -134,6 +138,7 @@ const Tabs = ({ photo }) => {
     }
     const result = identificationData ? identificationData["result"]["classification"]["suggestions"] : null;
     const diagnosis = diagnosisData ? diagnosisData["result"]["disease"]["suggestions"] : null;
+    console.log(diagnosis)
     //console.log(identificationData['access_token'])
     //const history = useHistory();  // Get access to the history instance
     const navigate = useNavigate();
@@ -234,8 +239,9 @@ const Tabs = ({ photo }) => {
                 </TabContent >)}
             {activeTab === 'tab2' && (
                 <TabContent>
-                    {diagnosis ? (
+                    {diagnosis && diagnosis.length > 0 ? (
                         <>
+
                             {diagnosisData.result.disease.suggestions.map((item, index) => (
                                 <Infocard
                                     key={index}
@@ -247,7 +253,7 @@ const Tabs = ({ photo }) => {
                             ))}
                         </>
                     ) : (
-                        <div>
+                        <div style={{ height: '100%', display: 'flex', alignContent: 'center' }}>
                             <img src={error}></img>
                         </div>
                     )}
