@@ -245,7 +245,9 @@ const Tabs = ({ photo, type }) => {
                             ))}
                         </>
                     ) : (
-                        <div>No data available. Please try again later.</div>
+                        <div style={{ justifySelf: 'center' }}>
+                            <span className="loading loading-spinner loading-lg" style={{ color: '#B4EF4C' }}></span>
+                        </div>
                     )}
                 </TabContent >)}
             {activeTab === 'tab2' && (
