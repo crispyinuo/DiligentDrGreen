@@ -62,6 +62,10 @@ function Camera() {
 
     const takePhoto = () => {
         let video = videoRef.current;
+        // Fix for iOS Safari
+        video.setAttribute('autoplay', '');
+        video.setAttribute('muted', '');
+        video.setAttribute('playsinline', '')
         let photo = photoRef.current;
         let ctx = photo.getContext('2d');
 
