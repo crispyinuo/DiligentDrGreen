@@ -16,6 +16,7 @@ import avatar4 from '../images/Avatar4.png';
 import avatar5 from '../images/Avatar5.png';
 import avatar6 from '../images/Avatar6.png';
 import NavBar from '../components/navBar';
+import Plus from '../icons/plus.png';
 import time_icon from '../icons/Time.png';
 import identify_icon from '../icons/Scanning.png'
 import diagnosis_icon from '../icons/Stethoscope.png'
@@ -69,7 +70,6 @@ const CardsContainer = styled.div`
   overflow-y: scroll; 
   max-height:58vh; 
   padding-bottom: 100px;
-  
 `;
 
 const NavBarContainer = styled.div`
@@ -96,7 +96,29 @@ function Feed() {
             <TabContent  >
                 {activeTab === 'tab1' && (
 
+
                     <CardsContainer>
+                        <div className="flex flex-col self-start">
+                            <div className="w-full text-lg font-bold px-6 tracking-tight leading-5 text-black">
+                                My groups
+                            </div>
+                            <div className="flex gap-2 px-5 mt-3">
+                                <div className="justify-center px-6 py-2 text-xs tracking-tight leading-6 text-black whitespace-nowrap bg-white shadow-2xl rounded-[90px]">
+                                    Cactus
+                                </div>
+                                <div className="justify-center px-6 py-2 text-xs tracking-tight leading-6 text-black whitespace-nowrap bg-white shadow-2xl rounded-[90px]">
+                                    Succulents
+                                </div>
+                                <div className="flex justify-center items-center p-1 w-9 h-9 bg-white shadow-2xl rounded-[90px]">
+                                    <img
+                                        loading="lazy"
+                                        src={Plus}
+                                        className="w-7 aspect-square"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+
                         <Post name='Ada Jones'
                             avatar={avatar1}
                             content='Excited to add a barrel cactus to my collection! Does anyone have suggestions on the best soil mix and pot size for it?'
@@ -122,6 +144,7 @@ function Feed() {
                             like='7'
                             comment='1' />
                     </CardsContainer>
+
                 )}
                 {activeTab === 'tab2' && (
                     <CardsContainer>
