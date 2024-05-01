@@ -79,6 +79,7 @@ const TabContent = styled.div`
   max-height: 618px; 
   min-height:550px;
 `;
+
 const CardsContainer = styled.div`
   display: flex;  
   align-items: center;
@@ -95,7 +96,7 @@ const NavBarContainer = styled.div`
 `;
 
 const Spacer = styled.div`
-  flex-grow: 1; // Takes all available space
+  flex-grow: 1; 
 `;
 
 function Feed() {

@@ -6,10 +6,12 @@ import Tabs from '../components/tab';
 import NavBar from "../components/navBar";
 import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+
 const AppContainer = styled.div`
   display: flex;
   flex-direction: column;
   height:100%;
+  width:100%;
   margin: auto;
   font-family: 'Arial', sans-serif;
   
@@ -23,8 +25,6 @@ const Header = styled.div`
   padding-bottom:20px;
   
 `;
-
-
 
 const NavButton = styled.button`
   background: none;
@@ -77,9 +77,9 @@ const DetailsButton = styled.button`
 
 // Placeholder data
 const plantIdentification = {
-    image: 'cactus-image.jpg',
-    name: 'Mammillaria spinosissima',
-    confidence: '60.5%'
+  image: 'cactus-image.jpg',
+  name: 'Mammillaria spinosissima',
+  confidence: '60.5%'
 };
 
 const TabsContainer = styled.div`
@@ -110,36 +110,36 @@ const PageContainer = styled.div`
   width: 100%;       
 `;
 function Identify() {
-    const location = useLocation();
-    const photo = location.state?.photo;
-    const type = location.state.type;
-    const navigate = useNavigate();
-    const handleClick = () => {
+  const location = useLocation();
+  const photo = location.state?.photo;
+  const type = location.state.type;
+  const navigate = useNavigate();
+  const handleClick = () => {
 
-        // Additional action
-        navigate(-1);
-    };
-    return (
-        <PageContainer>
-            <AppContainer>
-                <Header>
-                    <button onClick={handleClick} style={{ display: "flex", paddingTop: "44px", paddingLeft: "20px" }}>
-                        <img src={return_icon} style={{ height: "24px", width: "24px" }}></img>
-                    </button>
-                </Header>
-                <IdentificationCard>
-                    <Tabs photo={photo} type={type} />
+    // Additional action
+    navigate(-1);
+  };
+  return (
+    <PageContainer>
+      <AppContainer>
+        <Header>
+          <button onClick={handleClick} style={{ display: "flex", paddingTop: "44px", paddingLeft: "20px" }}>
+            <img src={return_icon} style={{ height: "24px", width: "24px" }}></img>
+          </button>
+        </Header>
+        <IdentificationCard>
+          <Tabs photo={photo} type={type} />
 
-                </IdentificationCard>
+        </IdentificationCard>
 
 
 
-            </AppContainer>
-            <div className="nav-bar-container">
-                <NavBar activeButtonId={2} />
-            </div>
-        </PageContainer>
-    );
+      </AppContainer>
+      <div className="nav-bar-container">
+        <NavBar activeButtonId={2} />
+      </div>
+    </PageContainer>
+  );
 }
 
 
