@@ -29,7 +29,7 @@ const CardsContainer = styled.div`
   width: 100%;
   padding: 0 16px; 
   overflow-y: scroll; 
-  max-height:60vh; 
+  max-height:50vh; 
   grid-auto-rows: 1fr;
   padding-bottom: 100px;
 `;
