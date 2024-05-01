@@ -20,7 +20,7 @@ function Comments({
     content = "Congrats on the new addition! For barrel cacti, a mix of 50% potting soil and 50% sand works great. Stick to a pot just bigger than the cactus for best growth."
 }) {
     return (
-        <div className="flex gap-1 pt-4">
+        <div className="flex gap-1 pt-4 pb-1">
             <div className="avatar pl-6">
                 <div className="w-9 h-9 rounded-full overflow-hidden">
                     <img src={avatar} alt="Avatar" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
