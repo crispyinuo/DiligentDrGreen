@@ -17,10 +17,10 @@ import identify_icon from '../icons/Scanning.png'
 import diagnosis_icon from '../icons/Stethoscope.png'
 import image4 from '../images/history_image 4.png';
 import { useNavigate } from 'react-router-dom';
+
 const TabsContainer = styled.div`
   display: flex;
   justify-content: center;
-  
 `;
 
 const PageContainer = styled.div`
@@ -28,8 +28,8 @@ const PageContainer = styled.div`
   flex-direction: column;
   align-items: center;
   overflow: hidden; 
-  max-height: 100vh; // 100% of the viewport height
-  width: 100%;       
+  max-height: 100vh;
+  width: 100%;
 `;
 
 const Tab = styled.button`
@@ -45,57 +45,54 @@ const Tab = styled.button`
   font-weight: bold;
   font-size: 16px;
 `;
-const ContentArea = styled.div`
-  min-height: 600px;
+const TabContent = styled.div`
   margin: 10px;
   display: flex;
+  align-items: center;
   flex-direction: column;
-  justify-content: center;
+  overflow: scroll;
   align-items: center; /* This centers children vertically */
-  height: 100%; /* You need a defined height for the container */
   flex: 1;  // Takes up only the necessary space left by other elements
   width: 100%;  // Full width of its container
   overflow-y: auto;  // Allows vertical scrolling within the TabContent
-  max-height: calc(100vh - 50px); 
-  padding-top: 900px;
-  
+  max-height: 58vh; 
 `;
 const CardsContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
+  display: flex;  
+  align-items: center;
+  flex-direction: column;
   width: 100%;
-  padding: 0 16px; 
   overflow-y: scroll; 
-  max-height:60vh; 
-  grid-auto-rows: 1fr;
+  max-height:58vh; 
   padding-bottom: 100px;
   
 `;
 
-// Tab components
-const TabContent = ({ children }) => {
-    return <ContentArea>{children}</ContentArea>;
-};
+const NavBarContainer = styled.div`
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+`;
+
 
 function Feed() {
     const [activeTab, setActiveTab] = useState('tab1');
     return (
         <PageContainer>
-            <main>
-                <DrMessage message="Meet our community!" />
+            <DrMessage message="Meet our community!" />
 
-                <TabsContainer  >
-                    <Tab onClick={() => setActiveTab('tab1')} active={activeTab === 'tab1'}>
-                        Feed
-                    </Tab>
-                    <Tab onClick={() => setActiveTab('tab2')} active={activeTab === 'tab2'}>
-                        Explore
-                    </Tab>
-                </TabsContainer>
+            <TabsContainer  >
+                <Tab onClick={() => setActiveTab('tab1')} active={activeTab === 'tab1'}>
+                    Feed
+                </Tab>
+                <Tab onClick={() => setActiveTab('tab2')} active={activeTab === 'tab2'}>
+                    Explore
+                </Tab>
+            </TabsContainer>
+            <TabContent  >
                 {activeTab === 'tab1' && (
 
-                    <TabContent  >
+                    <CardsContainer>
                         <Post name='Ada Jones'
                             avatar={avatar1}
                             content='Excited to add a barrel cactus to my collection! Does anyone have suggestions on the best soil mix and pot size for it?'
@@ -120,20 +117,20 @@ function Feed() {
                             img={post4}
                             like='7'
                             comment='1' />
-                    </TabContent >
+                    </CardsContainer>
                 )}
                 {activeTab === 'tab2' && (
-                    <TabContent>
+                    <CardsContainer>
 
-                    </TabContent>)}
+                    </CardsContainer>)}
 
 
 
                 <div className="nav-bar-container">
                     <NavBar activeButtonId={3} />
                 </div>
-            </main>
-        </ PageContainer>
+            </TabContent>
+        </ PageContainer >
     );
 }
 
