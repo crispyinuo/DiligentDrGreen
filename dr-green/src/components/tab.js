@@ -121,7 +121,7 @@ const Tabs = ({ photo, type }) => {
         fetch('https://plant.id/api/v3/' + func, {
             method: 'POST',
             headers: {
-                'Api-Key': 'U9DFkDFTVBsqwe93WnVAiap4mOfOrBTY1TJtyngSwrt4jLrtkh',
+                'Api-Key': '4J8obgoUGkMxXe1bVPTgs193l48lirotnw3eRIG5fFzKgjNAhF',
                 'Content-Type': 'application/json'
             },
 
@@ -198,7 +198,7 @@ const Tabs = ({ photo, type }) => {
                 {
                     method: 'GET',
                     headers: {
-                        'Api-Key': 'U9DFkDFTVBsqwe93WnVAiap4mOfOrBTY1TJtyngSwrt4jLrtkh',
+                        'Api-Key': '4J8obgoUGkMxXe1bVPTgs193l48lirotnw3eRIG5fFzKgjNAhF',
                         'Content-Type': 'application/json'
                     }
                 })
