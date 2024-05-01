@@ -17,6 +17,10 @@ import avatar5 from '../images/Avatar5.png';
 import avatar6 from '../images/Avatar6.png';
 import NavBar from '../components/navBar';
 import Plus from '../icons/plus.png';
+import Edit from '../icons/edit.png';
+import Remind from '../icons/remind.png';
+import Search from '../icons/search.png';
+import Settings from '../icons/settings.png';
 import time_icon from '../icons/Time.png';
 import identify_icon from '../icons/Scanning.png'
 import diagnosis_icon from '../icons/Stethoscope.png'
@@ -29,6 +33,12 @@ const TabsContainer = styled.div`
   
 `;
 
+const HorizontalContainer = styled.div`
+  display: flex;
+  align-items: center; 
+  width: 100%;
+`;
+
 const PageContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -36,6 +46,14 @@ const PageContainer = styled.div`
   overflow: hidden; 
   max-height: 100vh;
   width: 100%;
+`;
+
+const Icon = styled.img`
+  max-width: 24px;  
+  max-height: 24px; 
+  margin-right: 12px; 
+  width: auto;     
+  height: auto;     
 `;
 
 const Tab = styled.button`
@@ -80,12 +98,20 @@ const NavBarContainer = styled.div`
   width: 100%;
 `;
 
+const Spacer = styled.div`
+  flex-grow: 1; // Takes all available space
+`;
 
 function Feed() {
     const [activeTab, setActiveTab] = useState('tab1');
     return (
         <PageContainer>
-            <DrMessage message="Meet our community!" />
+            <HorizontalContainer>
+                <DrMessage message="Meet our community!" />
+                <Icon src={Search} alt="Search" />
+                <Icon src={Remind} alt="Remind" />
+                <Icon src={Settings} alt="Settings" />
+            </HorizontalContainer>
 
             <TabsContainer  >
                 <Tab onClick={() => setActiveTab('tab1')} active={activeTab === 'tab1'}>
@@ -97,8 +123,6 @@ function Feed() {
             </TabsContainer>
             <TabContent  >
                 {activeTab === 'tab1' && (
-
-
                     <CardsContainer>
                         <div className="flex flex-col self-start">
                             <div className="w-full text-lg font-bold px-6 tracking-tight leading-5 text-black">
