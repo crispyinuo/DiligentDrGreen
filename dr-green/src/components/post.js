@@ -1,5 +1,6 @@
 import * as React from 'react';
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 import image4 from '../images/history_image 4.png';
 import time_icon from '../icons/Time.png';
 import avatar1 from '../images/Avatar1.png'
@@ -49,9 +50,24 @@ const ChatBubble = styled.div`
   flex-direction: column;
 `;
 function Post(props) {
+    const navigate = useNavigate();
+
+    function handleNavigate() {
+        navigate('/post', {
+            state: {
+                name: props.name,
+                avatar: props.avatar,
+                content: props.content,
+                img: props.img,
+                tag: props.tag,
+                like: props.like,
+                comment: props.comment,
+            }
+        });
+    }
 
     return (
-        <ChatBubble >
+        <ChatBubble onClick={handleNavigate}>
             <Head>
                 <div class="avatar">
                     <div class="w-20 rounded-full">
