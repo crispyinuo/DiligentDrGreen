@@ -21,6 +21,7 @@ import Edit from '../icons/edit.png';
 import Remind from '../icons/remind.png';
 import Search from '../icons/search.png';
 import Settings from '../icons/settings.png';
+import CircleButton from '../components/circleButton';
 import time_icon from '../icons/Time.png';
 import identify_icon from '../icons/Scanning.png'
 import diagnosis_icon from '../icons/Stethoscope.png'
@@ -195,12 +196,15 @@ function Feed() {
 
                     </CardsContainer>)}
 
-
+                <div className="circle-button-container">
+                    <CircleButton />
+                </div>
 
                 <div className="nav-bar-container">
                     <NavBar activeButtonId={3} />
                 </div>
             </TabContent>
+
         </ PageContainer >
     );
 }

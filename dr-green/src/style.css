@@ -59,6 +59,13 @@
   width: 100%; 
 }
 
+.circle-button-container {
+  position:  absolute;  
+  bottom: 12%;     
+  right: 10%; 
+}
+
+
 .green-text {
   color: #B4EF4C; 
 }
