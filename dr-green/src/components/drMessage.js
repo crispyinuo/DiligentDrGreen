@@ -11,7 +11,8 @@ const MessageContainer = styled.div`
 `;
 
 const Bubble = styled.p`
-  background-color: white;justify-content: center;
+  background-color: white;
+  justify-content: center;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   border-radius: 40px; 
   padding: 12px 12px; 
@@ -20,7 +21,9 @@ const Bubble = styled.p`
   display: inline-block;
   text-overflow: ellipsis; // Add ellipsis if text is too long
   line-height: 1.2; // Adjust line height for better readability
-  max-height: 3.6em; // Max height to fit two lines (based on line height)
+  max-height: 8.4em; // Max height to fit two lines (based on line height)
+  font-size: 12px;
+  color: black; 
 `;
 
 function DrMessage({ message }) {
