@@ -14,7 +14,8 @@ const AppContainer = styled.div`
   width:100%;
   margin: auto;
   font-family: 'Arial', sans-serif;
-  
+  max-height: 100vh;
+  overflow: hidden;
 `;
 
 const Header = styled.div`
@@ -48,8 +49,8 @@ const IdentificationCard = styled.div`
   align-items: center; /* Center children horizontally */
   text-align: center;
   position: relative;
-  min-height:804px;
-   
+  max-height:900px;
+  min-height:70vh;
 `;
 
 const IdentificationImage = styled.img`
