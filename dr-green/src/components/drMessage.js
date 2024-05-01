@@ -21,7 +21,7 @@ const Bubble = styled.p`
   display: inline-block;
   text-overflow: ellipsis; // Add ellipsis if text is too long
   line-height: 1.2; // Adjust line height for better readability
-  max-height: 8.4em; // Max height to fit two lines (based on line height)
+  max-height: 9.6em; // Max height to fit two lines (based on line height)
   font-size: 12px;
   color: black; 
 `;

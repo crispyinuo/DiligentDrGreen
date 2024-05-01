@@ -17,7 +17,7 @@ function Login() {
     const navigate = useNavigate();
 
     const navigateToHistory = () => {
-        navigate('/history');
+        navigate('/tutorialone');
     };
     return (
         <div className="flex flex-col px-5 pt-20 pb-5 mx-auto w-full bg-neutral-100 max-w-[480px]">

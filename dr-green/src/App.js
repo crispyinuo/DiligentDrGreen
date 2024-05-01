@@ -12,6 +12,9 @@ import DetailsPage from './components/detail';
 import ConfirmPhoto from "./pages/confirmPhoto";
 import Login from "./pages/login";
 import Feed from "./pages/feed";
+import TutorialOne from "./pages/tutorial1";
+import TutorialTwo from "./pages/tutorial2";
+import TutorialThree from "./pages/tutorial3";
 
 export default function App() {
   return (
@@ -29,6 +32,9 @@ export default function App() {
             <Route path="details" element={<DetailsPage />} />
             <Route path="confirm" element={<ConfirmPhoto />} />
             <Route path="feed" element={<Feed />} />
+            <Route path="tutorialone" element={<TutorialOne />} />
+            <Route path="tutorialtwo" element={<TutorialTwo />} />
+            <Route path="tutorialthree" element={<TutorialThree />} />
           </Routes>
         </BrowserRouter>
       </div>
