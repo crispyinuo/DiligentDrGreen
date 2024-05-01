@@ -7,10 +7,14 @@ import cactus_post from '../images/Cactus_post.png';
 import post2 from '../images/post2.png';
 import post3 from '../images/post3.png';
 import post4 from '../images/post4.png';
+import post5 from '../images/post5.png';
+import post6 from '../images/post6.png';
 import avatar1 from '../images/Avatar1.png';
 import avatar2 from '../images/Avatar2.png';
 import avatar3 from '../images/Avatar3.png';
 import avatar4 from '../images/Avatar4.png';
+import avatar5 from '../images/Avatar5.png';
+import avatar6 from '../images/Avatar6.png';
 import NavBar from '../components/navBar';
 import time_icon from '../icons/Time.png';
 import identify_icon from '../icons/Scanning.png'
@@ -121,6 +125,18 @@ function Feed() {
                 )}
                 {activeTab === 'tab2' && (
                     <CardsContainer>
+                        <Post name='Nancy Wang'
+                            avatar={avatar5}
+                            content='Excited to add a barrel cactus to my collection! Does anyone have suggestions on the best soil mix and pot size for it?'
+                            img={post5}
+                            like='6'
+                            comment='2' />
+                        <Post name='Hugh Smith'
+                            avatar={avatar6}
+                            content='Help needed: My cactus is showing brown spots on the top. Could it be sunburn or something else? Any advice folks?'
+                            img={post6}
+                            like='2'
+                            comment='3' />
 
                     </CardsContainer>)}
 
