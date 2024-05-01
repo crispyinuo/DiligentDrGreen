@@ -111,6 +111,11 @@ function Camera() {
         link.click();
     };
 
+    // Function to handle video can play event
+    const onCanPlay = () => {
+        videoRef.current.play();
+    };
+
     const closeCamera = () => {
         let video = videoRef.current;
         if (video.srcObject) {
@@ -129,7 +134,7 @@ function Camera() {
             <CameraTopBar />
             <div className="content-container">
                 <div className="photoContainer">
-                    <video ref={videoRef} className="video-feed"></video>
+                    <video ref={videoRef} onCanPlay={onCanPlay} playsInline className="video-feed"></video>
                     <canvas ref={photoRef} style={{ display: 'none' }}></canvas>
                     <input
                         type="file"
