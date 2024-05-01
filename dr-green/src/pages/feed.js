@@ -26,6 +26,7 @@ import { useNavigate } from 'react-router-dom';
 const TabsContainer = styled.div`
   display: flex;
   justify-content: center;
+  
 `;
 
 const PageContainer = styled.div`
@@ -49,6 +50,7 @@ const Tab = styled.button`
   font-family: 'Montserrat';
   font-weight: bold;
   font-size: 16px;
+  
 `;
 const TabContent = styled.div`
   margin: 10px;
@@ -61,6 +63,7 @@ const TabContent = styled.div`
   width: 100%;  // Full width of its container
   overflow-y: auto;  // Allows vertical scrolling within the TabContent
   max-height: 58vh; 
+  min-height:550px;
 `;
 const CardsContainer = styled.div`
   display: flex;  
@@ -68,8 +71,9 @@ const CardsContainer = styled.div`
   flex-direction: column;
   width: 100%;
   overflow-y: scroll; 
-  max-height:58vh; 
-  padding-bottom: 100px;
+  max-height:70vh; 
+  
+  
 `;
 
 const NavBarContainer = styled.div`
@@ -123,24 +127,28 @@ function Feed() {
                             avatar={avatar1}
                             content='Excited to add a barrel cactus to my collection! Does anyone have suggestions on the best soil mix and pot size for it?'
                             img={cactus_post}
+                            tag="Cactus"
                             like='12'
                             comment='2' />
                         <Post name='Alex Wilson'
                             avatar={avatar2}
                             content='Help needed: My cactus is showing brown spots on the top. Could it be sunburn or something else? Any advice folks?'
                             img={post2}
+                            tag="Cactus"
                             like='2'
                             comment='1' />
                         <Post name='Jenny Chen'
                             avatar={avatar3}
                             content="I'm new to indoor succulents and could use some advice. What’s the best watering schedule to keep them thriving?"
                             img={post3}
+                            tag="Succulents"
                             like='8'
                             comment='1' />
                         <Post name='Emma Parker'
                             avatar={avatar4}
                             content='My jade plant just started blooming! It’s gorgeous. Does anyone know if blooming affects its watering or feeding needs?'
                             img={post4}
+                            tag="Succulents"
                             like='7'
                             comment='1' />
                     </CardsContainer>
@@ -152,12 +160,14 @@ function Feed() {
                             avatar={avatar5}
                             content='Excited to add a barrel cactus to my collection! Does anyone have suggestions on the best soil mix and pot size for it?'
                             img={post5}
+                            tag="Monstera"
                             like='6'
                             comment='2' />
                         <Post name='Hugh Smith'
                             avatar={avatar6}
                             content='Help needed: My cactus is showing brown spots on the top. Could it be sunburn or something else? Any advice folks?'
                             img={post6}
+                            tag="Fern"
                             like='2'
                             comment='3' />
 

@@ -13,14 +13,16 @@ const TabsContainer = styled.div`
   display: flex;
   justify-content: center;
   
+  
 `;
 
 const Tab = styled.button`
   padding: 5px;
   padding-bottom: 0px;
+  
   margin-right: 5px;
   border: none;
-  background-color: ${(props) => (props.active ? '#ffffff' : '#ffffff')};
+  background-color: #F6F6F6;
   border-bottom: ${(props) => (props.active ? '2px solid #B4EF4C' : 'none')};
   color: ${(props) => (props.active ? 'black' : '#D8D8D8')};
   cursor: pointer;
@@ -30,13 +32,15 @@ const Tab = styled.button`
 `;
 
 const ContentArea = styled.div`
-  min-height: 600px;
+  min-height: 550px;
   margin: 10px;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: column;  justify-content: flex-start;
   align-items: center; /* This centers children vertically */
   height: 100%; /* You need a defined height for the container */
+  gap: 24px;
+  overflow-y: auto; 
+  max-height: 500px; 
   
   
 `;

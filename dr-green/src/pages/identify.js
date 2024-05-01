@@ -9,16 +9,19 @@ import { useNavigate } from 'react-router-dom';
 const AppContainer = styled.div`
   display: flex;
   flex-direction: column;
-  
+  height:100%;
   margin: auto;
   font-family: 'Arial', sans-serif;
+  
 `;
 
 const Header = styled.div`
   position: relative;
   background: url(${background}) center center;
   background-size: cover;
-  height: 400px;
+  height: 100%;
+  padding-bottom:20px;
+  
 `;
 
 
@@ -35,9 +38,9 @@ const NavButton = styled.button`
 
 const IdentificationCard = styled.div`
   
-  background-color: white;
+  background-color: #F6F6F6;
   padding: 20px;
-  margin: 20px 0;
+  
   border-radius: 10px;
   box-shadow: 0px 5px 10px rgba(0,0,0,0.1);
   display: flex;
@@ -45,6 +48,8 @@ const IdentificationCard = styled.div`
   align-items: center; /* Center children horizontally */
   text-align: center;
   position: relative;
+  min-height:804px;
+   
 `;
 
 const IdentificationImage = styled.img`
@@ -95,6 +100,15 @@ const Tab = styled.button`
 const ContentArea = styled.div`
   min-height: 200px;
 `;
+
+const PageContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden; 
+  max-height: 100vh; // 100% of the viewport height
+  width: 100%;       
+`;
 function Identify() {
     const location = useLocation();
     const photo = location.state?.photo;
@@ -106,21 +120,25 @@ function Identify() {
         navigate(-1);
     };
     return (
-        <AppContainer>
-            <Header>
-                <button onClick={handleClick} style={{ display: "flex", paddingTop: "44px", paddingLeft: "20px" }}>
-                    <img src={return_icon} style={{ height: "24px", width: "24px" }}></img>
-                </button>
+        <PageContainer>
+            <AppContainer>
+                <Header>
+                    <button onClick={handleClick} style={{ display: "flex", paddingTop: "44px", paddingLeft: "20px" }}>
+                        <img src={return_icon} style={{ height: "24px", width: "24px" }}></img>
+                    </button>
+                </Header>
                 <IdentificationCard>
                     <Tabs photo={photo} type={type} />
-                    <div className="nav-bar-container">
-                        <NavBar activeButtonId={2} />
-                    </div>
+
                 </IdentificationCard>
 
-            </Header>
 
-        </AppContainer>
+
+            </AppContainer>
+            <div className="nav-bar-container">
+                <NavBar activeButtonId={2} />
+            </div>
+        </PageContainer>
     );
 }
 

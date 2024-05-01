@@ -64,7 +64,7 @@ function Post(props) {
                         <div className="badge badge-ghost badge-sm" style={{ backgroundColor: "#F6F6F6", border: "none" }}>
                             <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
                                 <img src={tag_icon} style={{ width: "12px", height: "12px" }} />
-                                <div style={{ color: "#A9A9A9", fontSize: "10px" }}>Cactus</div>
+                                <div style={{ color: "#A9A9A9", fontSize: "10px" }}>{props.tag}</div>
                             </div>
                         </div>
                         <div className="badge badge-ghost badge-sm" style={{ backgroundColor: "#F6F6F6", border: "none" }}>
@@ -77,7 +77,7 @@ function Post(props) {
                 </MessageContent>
             </Head>
             <Description>{props.content}</Description>
-            <img src={props.img} style={{ height: '200px', width: '300px' }} />
+            <img src={props.img} style={{ height: 'auto', width: '95%', alignSelf: 'center' }} />
             <Interaction>
                 <img src={like} style={{ width: "20px", height: "20px" }}></img>
                 {props.like}

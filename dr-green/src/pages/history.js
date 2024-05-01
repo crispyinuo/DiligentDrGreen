@@ -68,9 +68,9 @@ const History = () => {
         {
             id: 2, title: 'Water Deficiency', content: "Diagnosis", date: '2024.3.10', description: 'Water deficiency is similar in its symptoms to over-watering and it is important to identify the cause. Symptoms include slow growth, wilting, discolored leaves and flowers, burning on edges of leaves. The affected plant can also suffer from disrupted nutrient uptake.', img: image2, icon: diagnosis_icon,
             treatment: {
-                biological: "For potted plants: if the soil is really dry, you may immerse the whole pot in water and wait until the soil absorbs the water.",
-                chemical: "You may apply hydrogel for plants to the soil to increase water retention capacity.",
-                prevention: "Mulch plants with a layer of organic mulch to reduce soil evaporation."
+                biological: ["For potted plants: if the soil is really dry, you may immerse the whole pot in water and wait until the soil absorbs the water."],
+                chemical: ["You may apply hydrogel for plants to the soil to increase water retention capacity."],
+                prevention: ["Mulch plants with a layer of organic mulch to reduce soil evaporation."]
             }
         },
         {
@@ -80,9 +80,9 @@ const History = () => {
         {
             id: 4, title: "Animalia", content: "Diagnosis", date: '2024.4.10', description: "Disorders induced by organisms from the animal kingdom. These pests cause direct damage by feeding on leaves, stems, roots, and other parts of the plant or by inhabiting plant tissues. Pests can also spread bacterial and viral diseases.", img: image4, icon: diagnosis_icon,
             treatment: {
-                biological: "Remove pests mechanically. Rub the pests off, or remove infested parts or use a strong stream of water to remove the insect.",
-                chemical: "If necessary, apply insecticide, or acaricide.",
-                prevention: "Encourage the presence of natural enemies (e.g. lady beetles, lacewings, parasitic wasps)."
+                biological: ["Remove pests mechanically. Rub the pests off, or remove infested parts or use a strong stream of water to remove the insect."],
+                chemical: ["If necessary, apply insecticide, or acaricide."],
+                prevention: ["Encourage the presence of natural enemies (e.g. lady beetles, lacewings, parasitic wasps)."]
             }
         }
     ];

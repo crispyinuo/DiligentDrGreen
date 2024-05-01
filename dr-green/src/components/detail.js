@@ -20,7 +20,8 @@ const Header = styled.div`
   position: relative;
   background: url(${background}) center center;
   background-size: cover;
-  height: 400px;
+  height: 100%;
+  padding-bottom:20px;
 `;
 
 
@@ -36,17 +37,19 @@ const NavButton = styled.button`
 `;
 
 const IdentificationCard = styled.div`
-  
-  background-color: white;
+  min-height: 600px;
+  background-color: #F6F6F6;
   padding: 20px;
   margin: 20px 0;
   border-radius: 10px;
-  box-shadow: 0px 5px 10px rgba(0,0,0,0.1);
+  
   display: flex;
   flex-direction: column;
   align-items: center; /* Center children horizontally */
   text-align: center;
   position: relative;
+  overflow-y: auto;  // Allows vertical scrolling within the TabContent
+  max-height: 400px; 
 `;
 
 const IdentificationImage = styled.img`
@@ -116,6 +119,14 @@ const HorizontalLine = styled.hr`
   background-color: black; // Line color
   margin: 8px 0; // Spacing above and below the line
 `;
+const PageContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden; 
+  max-height: 100vh; // 100% of the viewport height
+  width: 100%;       
+`;
 
 const Detail = ({ navigation, route }) => {
     const diagnosis = useLocation();
@@ -131,11 +142,13 @@ const Detail = ({ navigation, route }) => {
         navigate(-1);
     };
     return (
-        <AppContainer>
-            <Header>
-                <button onClick={handleClick} style={{ display: "flex", paddingTop: "44px", paddingLeft: "20px" }}>
-                    <img src={return_icon} style={{ height: "24px", width: "24px" }}></img>
-                </button>
+        <PageContainer>
+            <AppContainer>
+                <Header>
+                    <button onClick={handleClick} style={{ display: "flex", paddingTop: "44px", paddingLeft: "20px" }}>
+                        <img src={return_icon} style={{ height: "24px", width: "24px" }}></img>
+                    </button>
+                </Header>
                 <IdentificationCard>
                     {
                         <>
@@ -177,14 +190,17 @@ const Detail = ({ navigation, route }) => {
                             </div >
                         </>
                     }
-                    <div className="nav-bar-container">
-                        <NavBar activeButtonId={2} />
-                    </div>
+
                 </IdentificationCard>
 
-            </Header>
 
-        </AppContainer>
+
+
+            </AppContainer>
+            <div className="nav-bar-container">
+                <NavBar activeButtonId={2} />
+            </div>
+        </PageContainer>
     );
 }
 export default Detail;
