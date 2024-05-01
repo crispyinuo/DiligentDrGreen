@@ -59,6 +59,19 @@
   width: 100%; 
 }
 
+.camera-label-container {
+  position: absolute;
+  top: 3%;
+  left: 0; 
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%; 
+}
+
+
 .circle-button-container {
   position:  absolute;  
   bottom: 12%;     

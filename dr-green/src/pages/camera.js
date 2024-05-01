@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import IdentifyDiagnosisBar from '../components/identifyDiagnosisBar';
 import CameraBottomBar from '../components/cameraBottomBar';
 import TopBar from '../components/topBar';
+import RoundLabel from '../components/roundLabel';
 
 function Camera() {
     const videoRef = useRef(null);
@@ -133,6 +134,9 @@ function Camera() {
         <div className="camera">
             <TopBar backRoute="/history" />
             <div className="content-container">
+                <div className="camera-label-container ">
+                    <RoundLabel text={activeButton === 1 ? "Identify Mode" : "Diagnosis Mode"} />
+                </div>
                 <div className="photoContainer">
                     <video ref={videoRef} onCanPlay={onCanPlay} playsInline className="video-feed"></video>
                     <canvas ref={photoRef} style={{ display: 'none' }}></canvas>
