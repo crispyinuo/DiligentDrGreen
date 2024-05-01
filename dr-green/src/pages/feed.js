@@ -62,7 +62,7 @@ const TabContent = styled.div`
   flex: 1;  // Takes up only the necessary space left by other elements
   width: 100%;  // Full width of its container
   overflow-y: auto;  // Allows vertical scrolling within the TabContent
-  max-height: 58vh; 
+  max-height: 618px; 
   min-height:550px;
 `;
 const CardsContainer = styled.div`
@@ -71,9 +71,7 @@ const CardsContainer = styled.div`
   flex-direction: column;
   width: 100%;
   overflow-y: scroll; 
-  max-height:70vh; 
-  
-  
+  max-height:618px; 
 `;
 
 const NavBarContainer = styled.div`

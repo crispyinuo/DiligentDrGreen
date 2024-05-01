@@ -29,13 +29,9 @@ const CardsContainer = styled.div`
   width: 100%;
   padding: 0 16px; 
   overflow-y: scroll; 
-  max-height:50vh; 
+  max-height: 520px; 
   grid-auto-rows: 1fr;
   padding-bottom: 100px;
-`;
-
-const OffsetCard = styled(CommunityCard)`
-  margin-top: 200px; 
 `;
 
 function Community() {
@@ -77,17 +73,6 @@ function Community() {
             <DrMessage message="Choose groups of your interest!" />
             <CardsContainer>
                 {groupData.map((group, index) => {
-                    const isOffset = index % 2 !== 0 && index === 1;
-                    if (isOffset) {
-                        return <OffsetCard
-                            key={index}
-                            name={group.name}
-                            imageSrc={group.image}
-                            isPopular={group.isPopular}
-                            onSelect={handleSelect}
-                            selected={selectedGroups.has(group.name)}
-                        />
-                    }
                     return <CommunityCard
                         key={index}
                         name={group.name}

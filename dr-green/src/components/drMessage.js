@@ -6,7 +6,9 @@ import styled from "styled-components";
 const MessageContainer = styled.div`
   width: 100%;
   display: flex; 
-  padding: 20px; 
+  padding-top: 20px; 
+  padding-left: 20px;
+  padding-bottom: 10px; 
   align-items: flex-start; 
 `;
 
