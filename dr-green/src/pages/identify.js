@@ -51,7 +51,6 @@ const IdentificationCard = styled.div`
   position: relative;
   max-height:900px;
   min-height:70vh;
-   
 `;
 
 const IdentificationImage = styled.img`

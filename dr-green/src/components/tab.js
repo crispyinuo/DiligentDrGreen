@@ -32,7 +32,6 @@ const Tab = styled.button`
 `;
 
 const ContentArea = styled.div`
-  min-height: 550px;
   margin: 10px;
   display: flex;
   flex-direction: column;  justify-content: flex-start;
@@ -41,8 +40,6 @@ const ContentArea = styled.div`
   gap: 24px;
   overflow-y: auto; 
   max-height: 500px; 
-  
-  
 `;
 
 
