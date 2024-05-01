@@ -17,15 +17,10 @@ import avatar5 from '../images/Avatar5.png';
 import avatar6 from '../images/Avatar6.png';
 import NavBar from '../components/navBar';
 import Plus from '../icons/plus.png';
-import Edit from '../icons/edit.png';
 import Remind from '../icons/remind.png';
 import Search from '../icons/search.png';
 import Settings from '../icons/settings.png';
 import CircleButton from '../components/circleButton';
-import time_icon from '../icons/Time.png';
-import identify_icon from '../icons/Scanning.png'
-import diagnosis_icon from '../icons/Stethoscope.png'
-import image4 from '../images/history_image 4.png';
 import { useNavigate } from 'react-router-dom';
 
 const TabsContainer = styled.div`

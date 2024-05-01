@@ -2,11 +2,11 @@ import * as React from "react";
 import { useNavigate } from "react-router-dom";
 import BackIcon from '../icons/back.png';
 
-function CameraTopBar() {
+function TopBar({ backRoute = '/history' }) {
   const navigate = useNavigate();
 
   const handleBackClick = () => {
-    navigate('/history');
+    navigate(backRoute);
   };
 
   return (
@@ -22,4 +22,4 @@ function CameraTopBar() {
   );
 }
 
-export default CameraTopBar;
+export default TopBar;

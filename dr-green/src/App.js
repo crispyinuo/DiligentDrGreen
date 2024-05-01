@@ -15,6 +15,7 @@ import Feed from "./pages/feed";
 import TutorialOne from "./pages/tutorial1";
 import TutorialTwo from "./pages/tutorial2";
 import TutorialThree from "./pages/tutorial3";
+import PostDetails from "./pages/postDetails";
 
 export default function App() {
   return (
@@ -35,6 +36,7 @@ export default function App() {
             <Route path="tutorialone" element={<TutorialOne />} />
             <Route path="tutorialtwo" element={<TutorialTwo />} />
             <Route path="tutorialthree" element={<TutorialThree />} />
+            <Route path="post" element={<PostDetails />} />
           </Routes>
         </BrowserRouter>
       </div>

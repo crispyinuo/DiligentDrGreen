@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import CameraTopBar from '../components/cameraTopBar';
+import TopBar from '../components/topBar';
 import ConfirmBottomBar from '../components/confirmBottomBar';
 
 function ConfirmPhoto() {
@@ -26,7 +26,7 @@ function ConfirmPhoto() {
 
     return (
         <div className="confirm">
-            <CameraTopBar />
+            <TopBar backRoute="/history" />
             <div className="content-container">
                 <div className="photoContainer">
                     <img src={photo} alt="Captured" />

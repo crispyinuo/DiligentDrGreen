@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import IdentifyDiagnosisBar from '../components/identifyDiagnosisBar';
 import CameraBottomBar from '../components/cameraBottomBar';
-import CameraTopBar from '../components/cameraTopBar';
+import TopBar from '../components/topBar';
 
 function Camera() {
     const videoRef = useRef(null);
@@ -131,7 +131,7 @@ function Camera() {
     };
     return (
         <div className="camera">
-            <CameraTopBar />
+            <TopBar backRoute="/history" />
             <div className="content-container">
                 <div className="photoContainer">
                     <video ref={videoRef} onCanPlay={onCanPlay} playsInline className="video-feed"></video>
