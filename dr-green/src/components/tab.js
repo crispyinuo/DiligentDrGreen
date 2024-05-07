@@ -68,61 +68,21 @@ const Tabs = ({ photo, type }) => {
         return (decimalNumber * 100).toFixed(2) + '%';
     };
     const realimageURL = { photo }
-    //console.log(realimageURL.photo);
-    const fetchIdentificationData = () => {
+    const base64data = realimageURL.photo;
 
-        const imageURL = 'https://media.istockphoto.com/id/483451251/photo/fungal-attack.jpg?s=612x612&w=0&k=20&c=PM0Lld99Io4DU6sRqemkytZUkuSF5effOJ8fhIAXwVo=';
-        fetch(imageURL) // URL of your image
-            .then(response => response.blob()) // Convert the response to a Blob
-            .then(blob => {
-                // Convert Blob to Base64
-                const reader = new FileReader();
-                reader.readAsDataURL(blob);
-                reader.onload = () => {
-                    console.log('called: ', reader)
-                    //const base64data = reader.result;
-                    const base64data = realimageURL.photo;
-                    //console.log(base64data)
-                    //setBase64Image(base64data);
-                    uploadImage(base64data, 'identification'); // Call upload function
-                };
-            })
-            .catch(error => console.error('Error loading image:', error));
-    }; // Empty dependency array means this effect runs once on mount
-
-    const fetchDiagnosisData = () => {
-        const imageURL = 'https://media.istockphoto.com/id/483451251/photo/fungal-attack.jpg?s=612x612&w=0&k=20&c=PM0Lld99Io4DU6sRqemkytZUkuSF5effOJ8fhIAXwVo=';
-        fetch(imageURL) // URL of your image
-            .then(response => response.blob()) // Convert the response to a Blob
-            .then(blob => {
-                // Convert Blob to Base64
-                const reader = new FileReader();
-                reader.readAsDataURL(blob);
-                reader.onload = () => {
-                    //console.log('called: ', reader)
-                    //const base64data = reader.result;
-                    const base64data = realimageURL.photo;
-                    //console.log(base64data)
-                    //setBase64Image(base64data);
-                    uploadImage(base64data, 'health_assessment'); // Call upload function
-                };
-            })
-            .catch(error => console.error('Error loading image:', error));
-    }
     useEffect(() => {
         if (activeTab === 'tab1' && !identificationData) {
-            fetchIdentificationData();
+            uploadImage(base64data, 'identification');
         } else if (activeTab === 'tab2' && !diagnosisData) {
-            fetchDiagnosisData();
+            uploadImage(base64data, 'health_assessment');
         }
     }, [activeTab, identificationData, diagnosisData]);
 
     function uploadImage(base64Data, func) {
-        //console.log(base64Data)
         fetch('https://plant.id/api/v3/' + func, {
             method: 'POST',
             headers: {
-                'Api-Key': '3pOUVUg98j40Ln3Yh1LdUhsdXwJck7rLgCvVbpiXZeN2rIhrIL',
+                'Api-Key': 'EYRBBKg1LlXbNxUt4gPNUieiMEDWKNbWl091p23qZY96glptuE',
                 'Content-Type': 'application/json'
             },
 
@@ -144,21 +104,12 @@ const Tabs = ({ photo, type }) => {
             .catch(error => console.error(error));
     }
     const result = identificationData ? identificationData["result"]["classification"]["suggestions"] : null;
-    const diagnosis = diagnosisData ? diagnosisData["result"]["disease"]["suggestions"] : null;
-    // console.log(diagnosis);
-    // console.log(result);
-    //console.log(identificationData['access_token'])
-    //const history = useHistory();  // Get access to the history instance
+    //const diagnosis = diagnosisData ? diagnosisData["result"]["disease"]["suggestions"] : null;
     const navigate = useNavigate();
 
     const handleDetailsClick = (param, access_token, func) => {
-        // console.log("Parameter passed to function:", param);
-        // console.log(result);
-        // console.log(access_token);
         checkTaskStatus(access_token)
             .then(data => {
-                //console.log(data);
-                //console.log(descriptionData);
                 if (func == "identify") {
                     navigate('/details/', {
                         state: {
@@ -185,21 +136,15 @@ const Tabs = ({ photo, type }) => {
             .catch(error => {
                 console.error("Failed to check task status");
             });
-        //console.log(descriptionData)
-        //navigate('/details/', { state: { name: descriptionData['result']['classification']['suggestions'][0]['name'], img: result[0]['similar_images'][0]['url'] } });
-
-        // Perform any action here such as navigating to another page or opening a modal
     };
-    //console.log(result);
+
     const checkTaskStatus = (access_token) => {
-        //if (!taskId) return;  // Ensure there is a taskId set
-        //console.log(access_token);
         return new Promise((resolve, reject) => {
             fetch('https://plant.id/api/v3/identification/' + access_token + '?details=common_names%2Curl%2Ctreatment%2Cdescription%2Ctaxonomy%2Crank%2Cgbif_id%2Cinaturalist_id%2Cimage%2Csynonyms%2Cedible_parts%2Cwatering%20&language=en',
                 {
                     method: 'GET',
                     headers: {
-                        'Api-Key': '3pOUVUg98j40Ln3Yh1LdUhsdXwJck7rLgCvVbpiXZeN2rIhrIL',
+                        'Api-Key': 'EYRBBKg1LlXbNxUt4gPNUieiMEDWKNbWl091p23qZY96glptuE',
                         'Content-Type': 'application/json'
                     }
                 })
@@ -242,14 +187,18 @@ const Tabs = ({ photo, type }) => {
                             ))}
                         </>
                     ) : (
-                        <div style={{ justifySelf: 'center' }}>
+                        <div style={{ height: '100%', display: 'flex', alignContent: 'center' }}>
                             <span className="loading loading-spinner loading-lg" style={{ color: '#B4EF4C' }}></span>
                         </div>
                     )}
                 </TabContent >)}
             {activeTab === 'tab2' && (
                 <TabContent>
-                    {diagnosis && diagnosis.length > 0 ? (
+                    {!diagnosisData ? (
+                        <div style={{ height: '100%', display: 'flex', alignContent: 'center' }}>
+                            <span className="loading loading-spinner loading-lg" style={{ color: '#B4EF4C' }}></span>
+                        </div>
+                    ) : diagnosisData.result.disease.suggestions.length > 0 ? (
                         <>
 
                             {diagnosisData.result.disease.suggestions.map((item, index) => (

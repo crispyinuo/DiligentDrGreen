@@ -132,8 +132,8 @@ const Detail = ({ navigation, route }) => {
     const diagnosis = useLocation();
     const contentType = diagnosis.state.type;
     // console.log(diagnosis.state.name)
-    // console.log("diagnosis")
-    // console.log(diagnosis.state.treatment)
+    console.log("diagnosis")
+    console.log(diagnosis.state.treatment)
     // console.log(diagnosis.state.taxonomy)
     const navigate = useNavigate();
     const handleClick = () => {
@@ -177,8 +177,12 @@ const Detail = ({ navigation, route }) => {
                                                 </>
                                             ) : (
                                                 <>
-                                                    <li>Biological: {diagnosis.state.treatment['biological'][0]} </li>
-                                                    <li>Chemical: {diagnosis.state.treatment['chemical'][0]}  </li>
+                                                    {diagnosis.state.treatment['biological'] && (
+                                                        <li>Biological: {diagnosis.state.treatment['biological'][0]}</li>
+                                                    )}
+                                                    {diagnosis.state.treatment['chemical'] && (
+                                                        <li>Chemical: {diagnosis.state.treatment['chemical'][0]}</li>
+                                                    )}
                                                     <li>Prevention: {diagnosis.state.treatment['prevention'][0]} </li>
 
                                                 </>
