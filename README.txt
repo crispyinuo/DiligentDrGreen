@@ -1,8 +1,16 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+First, clone the repository to your local machine:
+
+git clone https://github.com/crispyinuo/DiligentDrGreen.git
+cd DiligentDrGreen
 
 In the project directory, you can run:
+
+`npm install`
+
+Install the project dependencies.
 
 `npm start`
 
